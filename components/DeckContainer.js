@@ -2,17 +2,16 @@ import React, { Component } from 'react'
 import { Text, StyleSheet, View, TouchableOpacity } from 'react-native'
 
 export default class DeckContainer extends Component {
-    test = () => {
-        console.log(this.props)
-    }
-    
-    
+
     render() {
         const { textStyle, viewStyle } = styles
-        {console.log(this.props)}
 
         return (
-            <TouchableOpacity style={viewStyle} onPress={() => this.props.navigation.navigate('ViewDeck')}>
+            <TouchableOpacity style={viewStyle} onPress={() => 
+                this.props.navigation.navigate('ViewDeck', {
+                deckName: this.props.deckName,
+                questions: this.props.questions
+            })}>
                 <Text style={[textStyle, {fontSize: 30}]}>{this.props.deckName}</Text>
                 <Text style={textStyle}>{
                     this.props.questions === 0 ?

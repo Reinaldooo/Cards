@@ -25,9 +25,12 @@ const Tabs = TabNavigator({
   },
   tabBarOptions: {
     activeTintColor: 'white',
+    labelStyle: {
+      fontSize: 18,
+    },
     style: {
       height: 56,
-      backgroundColor: "#333",
+      backgroundColor: "#42A5F5",
       shadowColor: 'rgba(0, 0, 0, 0.5)',
       shadowOffset: {
         width: 0,
@@ -35,6 +38,10 @@ const Tabs = TabNavigator({
       },
       shadowRadius: 6,
       shadowOpacity: 1
+    },
+    indicatorStyle: {
+      backgroundColor: '#fff',
+      height: 2.5
     }
   }
 });
@@ -48,7 +55,7 @@ const MainNavigator = StackNavigator({
     navigationOptions: {
       headerTintColor: 'white',
       headerStyle: {
-        backgroundColor: '#333',
+        backgroundColor: '#42A5F5',
       }
     }
   }
@@ -67,7 +74,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={{flex: 1}}>
-      <UdaciStatusBar backgroundColor='#333333' barStyle="default" />
+      <UdaciStatusBar backgroundColor='#42A5F5' barStyle="default" />
       <MainNavigator/>
       </View>
     );
