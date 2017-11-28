@@ -1,47 +1,75 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-/*
+import Main from './components/Main'
+import ViewDeck from './components/ViewDeck'
+import { TabNavigator, StackNavigator } from 'react-navigation'
+import { StatusBar, View } from 'react-native'
+import { Constants } from 'expo'
 
-Specific Requirements
+const Tabs = TabNavigator({
+  Main: {
+    screen: Main,
+    navigationOptions: {
+      tabBarLabel: 'Decks'
+    },
+  },
+  Deck: {
+    screen: ViewDeck,
+    navigationOptions: {
+      tabBarLabel: 'Add Deck'
+    },
+  }
 
-    Use create-react-native-app to build your project.
-    Allow users to create a deck which can hold an unlimited number of cards.
-    Allow users to add a card to a specific deck.
-    The front of the card should display the question.
-    The back of the card should display the answer.
-    Users should be able to quiz themselves on a specific deck and receive a score once they're done.
-    Users should receive a notification to remind themselves to study if they haven't already for that day.
+}, {
+  navigationOptions: {
+    header: null
+  },
+  tabBarOptions: {
+    activeTintColor: 'white',
+    style: {
+      height: 56,
+      backgroundColor: "#333",
+      shadowColor: 'rgba(0, 0, 0, 0.5)',
+      shadowOffset: {
+        width: 0,
+        height: 3
+      },
+      shadowRadius: 6,
+      shadowOpacity: 1
+    }
+  }
+});
 
+const MainNavigator = StackNavigator({
+  Home: {
+    screen: Tabs,
+  },
+  ViewDeck: {
+    screen: ViewDeck,
+    navigationOptions: {
+      headerTintColor: 'white',
+      headerStyle: {
+        backgroundColor: '#333',
+      }
+    }
+  }
+})
 
-
-TODO:
-
-
-    Deck List View (Default View)
-        displays the title of each Deck
-        displays the number of cards in each deck
-*/
+function UdaciStatusBar ({backgroundColor, ...props}) {
+  return (
+    <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
+      <StatusBar translucent backgroundColor={backgroundColor} {...props} />
+    </View>
+  )
+}
 
 export default class App extends React.Component {
+ 
   render() {
-    const { container, text } = styles
     return (
-      <View style={container}>
-        <Text style={text}>Testando Native!</Text>
+      <View style={{flex: 1}}>
+      <UdaciStatusBar backgroundColor='#333333' barStyle="default" />
+      <MainNavigator/>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    color: '#fff',
-    fontSize: 55, 
-  }
-});
