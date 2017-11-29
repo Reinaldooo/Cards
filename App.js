@@ -30,7 +30,7 @@ const Tabs = TabNavigator({
     },
     style: {
       height: 56,
-      backgroundColor: "#42A5F5",
+      backgroundColor: "#E53935",
       shadowColor: 'rgba(0, 0, 0, 0.5)',
       shadowOffset: {
         width: 0,
@@ -52,12 +52,13 @@ const MainNavigator = StackNavigator({
   },
   ViewDeck: {
     screen: ViewDeck,
-    navigationOptions: {
+    navigationOptions: ({navigation}) => ({
+      title: `${navigation.state.params.deckName} Deck`,
       headerTintColor: 'white',
       headerStyle: {
-        backgroundColor: '#42A5F5',
+        backgroundColor: '#E53935',
       }
-    }
+    }),
   }
 })
 
@@ -74,7 +75,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={{flex: 1}}>
-      <UdaciStatusBar backgroundColor='#42A5F5' barStyle="default" />
+      <UdaciStatusBar backgroundColor='#E53935' barStyle="default" />
       <MainNavigator/>
       </View>
     );

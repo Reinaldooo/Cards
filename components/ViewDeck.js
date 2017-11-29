@@ -1,32 +1,34 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 
 
 export default class ViewDeck extends React.Component {
  
   render() {
-    const { container, textStyle, mainContainer, btn } = styles
+    const { container, textStyle, mainContainer, btn, btnBlue } = styles
 
     return (
       
       <View style={[mainContainer]}>
         {this.props.navigation.state.params &&
           <View style={{alignItems: 'center'}}>
-            <Text style={[textStyle, {fontSize: 70}]}>{this.props.navigation.state.params.deckName}</Text>
+            <Text style={[textStyle, { fontSize: 60 }]}>{this.props.navigation.state.params.deckName}</Text>
             <Text style={textStyle}>{
               this.props.navigation.state.params.questions === 0 ?
-                "No questions!"
+                'No cards yet!'
                 :
-                `${this.props.navigation.state.params.questions} - question(s)`
+                `${this.props.navigation.state.params.questions} - card(s)`
             }
             </Text>
 
+            <View style={{marginTop: 70}}>
             <TouchableOpacity style={btn}>
-                <Text style={{fontSize: 30}}>Add Card</Text>          
+                <Text style={{fontSize: 20}}>Add Card</Text>          
             </TouchableOpacity>
-            <TouchableOpacity style={btn}>
-                <Text style={{fontSize: 30}}>Start Quiz</Text>          
+            <TouchableOpacity style={btnBlue}>
+                <Text style={{fontSize: 20}}>Start Quiz</Text>          
             </TouchableOpacity>
+            </View>
 
           </View>
         }
@@ -44,14 +46,22 @@ const styles = StyleSheet.create({
     paddingTop: 50
   },
   textStyle: {
-    fontSize: 50,
+    fontSize: 30,
     color: '#424242'
   },
   btn: {
-    backgroundColor: '#42A5F5',
-    borderRadius: 20,
+    borderRadius: 5,
     padding: 20,
-    marginTop: 30
+    marginTop: 30,
+    borderWidth: 1.5,
+    borderColor: '#333',
+  },
+  btnBlue: {
+    borderRadius: 5,
+    padding: 20,
+    marginTop: 30,    
+    borderWidth: 1.5,
+    borderColor: '#E53935',
   },
   container: {
     flex: 1,

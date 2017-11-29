@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, TouchableOpacity } from 'react-native'
+import { Ionicons, FontAwesome } from '@expo/vector-icons';
 
 export default class DeckContainer extends Component {
 
@@ -15,14 +16,16 @@ export default class DeckContainer extends Component {
                 <Text style={[textStyle, {fontSize: 30}]}>{this.props.deckName}</Text>
                 <Text style={textStyle}>{
                     this.props.questions === 0 ?
-                    "No questions!"
+                    "No cards yet!"
                     :
-                    this.props.questions + " - question(s)"
+                    this.props.questions + " - card(s)"
                 }</Text>
+                <Ionicons name="md-albums" size={25} style={{ color: '#333', paddingTop: 5 }} />
             </TouchableOpacity>
         )
     } 
 };
+
 
 const styles = StyleSheet.create({
     textStyle: {
@@ -30,15 +33,12 @@ const styles = StyleSheet.create({
         color: '#424242'
     },
     viewStyle: {
-        backgroundColor: '#EEEEEE',
         justifyContent: 'center',
         alignItems: 'center',
-        height: 100,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2},
-        shadowOpacity: 0.5,
-        elevation: 2,
-        position: 'relative',
-        marginTop: 20
+        padding: 20,
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: '#E53935',
+        margin: 20
     }
   });
