@@ -1,9 +1,9 @@
 import React from 'react';
-import Main from './components/Main'
-import ViewDeck from './components/ViewDeck'
-import { TabNavigator, StackNavigator } from 'react-navigation'
-import { StatusBar, View } from 'react-native'
-import { Constants } from 'expo'
+import Main from './components/Main';
+import ViewDeck from './components/ViewDeck';
+import { TabNavigator, StackNavigator } from 'react-navigation';
+import { StatusBar, View } from 'react-native';
+import { Constants } from 'expo';
 
 const Tabs = TabNavigator({
   Main: {
@@ -52,7 +52,7 @@ const MainNavigator = StackNavigator({
   },
   ViewDeck: {
     screen: ViewDeck,
-    navigationOptions: ({navigation}) => ({
+    navigationOptions: ({ navigation }) => ({
       title: `${navigation.state.params.deckName} Deck`,
       headerTintColor: 'white',
       headerStyle: {
@@ -62,7 +62,7 @@ const MainNavigator = StackNavigator({
   }
 })
 
-function UdaciStatusBar ({backgroundColor, ...props}) {
+function UdaciStatusBar({ backgroundColor, ...props }) {
   return (
     <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
       <StatusBar translucent backgroundColor={backgroundColor} {...props} />
@@ -74,9 +74,9 @@ export default class App extends React.Component {
  
   render() {
     return (
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
       <UdaciStatusBar backgroundColor='#E53935' barStyle="default" />
-      <MainNavigator/>
+      <MainNavigator />
       </View>
     );
   }

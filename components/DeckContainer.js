@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { Text, StyleSheet, View, TouchableOpacity } from 'react-native'
-import { Ionicons, FontAwesome } from '@expo/vector-icons';
+import React, { Component } from 'react';
+import { Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 export default class DeckContainer extends Component {
 
     render() {
-        const { textStyle, viewStyle } = styles
+        const { textStyle, viewStyle } = styles;
 
         return (
             <TouchableOpacity style={viewStyle} onPress={() => 
@@ -18,7 +18,7 @@ export default class DeckContainer extends Component {
                     this.props.questions === 0 ?
                     "No cards yet!"
                     :
-                    this.props.questions + " - card(s)"
+                    `${this.props.questions} - card(s)`
                 }</Text>
                 <Ionicons name="md-albums" size={25} style={{ color: '#333', paddingTop: 5 }} />
             </TouchableOpacity>

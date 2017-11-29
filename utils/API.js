@@ -1,5 +1,5 @@
 
-import { AsyncStorage } from 'react-native'
+import { AsyncStorage } from 'react-native';
 // import uuidv4 from 'uuid/v4'
 
 export function createDecks () {

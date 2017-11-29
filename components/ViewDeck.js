@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
 
 export default class ViewDeck extends React.Component {
  
   render() {
-    const { container, textStyle, mainContainer, btn, btnBlue } = styles
+    const { textStyle, mainContainer, btn, btnBlue } = styles
 
     return (
       
@@ -21,12 +21,12 @@ export default class ViewDeck extends React.Component {
             }
             </Text>
 
-            <View style={{marginTop: 70}}>
+            <View style={{ marginTop: 70 }}>
             <TouchableOpacity style={btn}>
-                <Text style={{fontSize: 20}}>Add Card</Text>          
+                <Text style={{ fontSize: 20 }}>Add Card</Text>          
             </TouchableOpacity>
             <TouchableOpacity style={btnBlue}>
-                <Text style={{fontSize: 20}}>Start Quiz</Text>          
+                <Text style={{ fontSize: 20 }}>Start Quiz</Text>          
             </TouchableOpacity>
             </View>
 
