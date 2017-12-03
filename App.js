@@ -1,11 +1,11 @@
 import React from 'react';
+import { TabNavigator, StackNavigator } from 'react-navigation';
+import { StatusBar, View } from 'react-native';
+import { Constants } from 'expo';
 import Main from './components/Main';
 import ViewDeck from './components/ViewDeck';
 import AddDeck from './components/AddDeck';
 import AddCard from './components/AddCard';
-import { TabNavigator, StackNavigator } from 'react-navigation';
-import { StatusBar, View, AsyncStorage } from 'react-native';
-import { Constants } from 'expo';
 import { createDecks } from './utils/API';
 
 const Tabs = TabNavigator({
@@ -33,7 +33,7 @@ const Tabs = TabNavigator({
     },
     style: {
       height: 56,
-      backgroundColor: "#E53935",
+      backgroundColor: '#E53935',
       shadowColor: 'rgba(0, 0, 0, 0.5)',
       shadowOffset: {
         width: 0,
@@ -73,14 +73,14 @@ const MainNavigator = StackNavigator({
       }
     }),
   }
-})
+});
 
 function UdaciStatusBar({ backgroundColor, ...props }) {
   return (
     <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
       <StatusBar translucent backgroundColor={backgroundColor} {...props} />
     </View>
-  )
+  );
 }
 
 export default class App extends React.Component {
@@ -89,7 +89,7 @@ export default class App extends React.Component {
     createDecks();
   }
  
-  render() {
+  render() {    
     return (
       <View style={{ flex: 1 }}>
       <UdaciStatusBar backgroundColor='#E53935' barStyle="default" />

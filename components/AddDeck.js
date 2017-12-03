@@ -16,16 +16,16 @@ export default class AddDeck extends React.Component {
         id
       }
     AsyncStorage.setItem(id, JSON.stringify(newDeck));
-    this.props.navigation.navigate('Main', {update: true});
+    this.props.navigation.navigate('Main', { update: true });
   }
  
   render() {
-    const { inputStyle, mainContainer, btnBlue } = styles
+    const { inputStyle, mainContainer, btnFocus } = styles
 
     return (
       
       <View style={[mainContainer]}>
-      <Text style={{ fontSize: 20 }}>Add your new deck:</Text>
+      <Text style={{ fontSize: 30, marginBottom: 15, color: 'white' }}>Add your new deck:</Text>
         <TextInput
             value={this.state.deckName}
             style={inputStyle}
@@ -34,10 +34,10 @@ export default class AddDeck extends React.Component {
             onChangeText={deckName => this.setState({ deckName })}
         />
         <TouchableOpacity 
-        style={btnBlue}
+        style={btnFocus}
         onPress={this.textHandle}
         >
-            <Text style={{ fontSize: 20 }}>Add Deck</Text>          
+            <Text style={{ fontSize: 20, color: 'white' }}>Add</Text>          
         </TouchableOpacity>
       </View>
     );
@@ -47,7 +47,7 @@ export default class AddDeck extends React.Component {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: '#EEEEEE',
+    backgroundColor: '#333',
     alignItems: 'center',
     justifyContent: 'flex-start',
     paddingTop: 50
@@ -55,10 +55,10 @@ const styles = StyleSheet.create({
   inputStyle: {
     fontSize: 30,
     color: '#424242',
-    height: 50,
-    width: 250
+    height: 60,
+    width: 300
   },
-  btnBlue: {
+  btnFocus: {
     borderRadius: 5,
     padding: 20,
     marginTop: 30,    

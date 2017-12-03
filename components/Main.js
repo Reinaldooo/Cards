@@ -26,8 +26,9 @@ export default class Main extends React.Component {
   }
 
   render() {
+
     return (
-      <View style={{ backgroundColor: 'white' }}>
+      <View style={{ backgroundColor: '#333333', flex: 1 }}>
       <ScrollView>
       {this.state.decks ? this.state.decks.map((deck) => 
         <DeckContainer

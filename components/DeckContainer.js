@@ -21,7 +21,7 @@ export default class DeckContainer extends Component {
                     :
                     `${this.props.questions} card(s)`
                 }</Text>
-                <Ionicons name="md-albums" size={25} style={{ color: '#333', paddingTop: 5 }} />
+                <Ionicons name="md-albums" size={25} style={{ color: 'white', paddingTop: 5 }} />
             </TouchableOpacity>
         )
     } 
@@ -31,7 +31,7 @@ export default class DeckContainer extends Component {
 const styles = StyleSheet.create({
     textStyle: {
         fontSize: 20,
-        color: '#424242'
+        color: 'white'
     },
     viewStyle: {
         justifyContent: 'center',
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         padding: 20,
         borderRadius: 5,
         borderWidth: 1,
-        borderColor: '#E53935',
+        borderColor: 'white',
         margin: 20
     }
   });
