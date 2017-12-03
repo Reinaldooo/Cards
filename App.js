@@ -1,6 +1,7 @@
 import React from 'react';
 import Main from './components/Main';
 import ViewDeck from './components/ViewDeck';
+import AddDeck from './components/AddDeck';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import { StatusBar, View } from 'react-native';
 import { Constants } from 'expo';
@@ -13,7 +14,7 @@ const Tabs = TabNavigator({
     },
   },
   Deck: {
-    screen: ViewDeck,
+    screen: AddDeck,
     navigationOptions: {
       tabBarLabel: 'Add Deck'
     },

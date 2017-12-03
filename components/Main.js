@@ -8,7 +8,6 @@ export default class Main extends React.Component {
   state = {}
 
   componentDidMount() {
-    AsyncStorage.clear();
     createDecks();
     AsyncStorage.getAllKeys((err, keys) => {
       AsyncStorage.multiGet(keys, (err, decks) => {
@@ -16,7 +15,15 @@ export default class Main extends React.Component {
       });
     });
   }
- 
+  componentWillReceiveProps(nextProps) {
+    nextProps.navigation.state.params &&
+    AsyncStorage.getAllKeys((err, keys) => {
+      AsyncStorage.multiGet(keys, (err, decks) => {
+        this.setState({ decks });
+      });
+    });
+  }
+
   render() {
     return (
       <View style={{ backgroundColor: 'white' }}>
