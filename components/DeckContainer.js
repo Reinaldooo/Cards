@@ -11,14 +11,15 @@ export default class DeckContainer extends Component {
             <TouchableOpacity style={viewStyle} onPress={() => 
                 this.props.navigation.navigate('ViewDeck', {
                 deckName: this.props.deckName,
-                questions: this.props.questions
+                questions: this.props.questions,
+                deckId: this.props.deckId
             })}>
                 <Text style={[textStyle, {fontSize: 30}]}>{this.props.deckName}</Text>
                 <Text style={textStyle}>{
                     this.props.questions === 0 ?
                     "No cards yet!"
                     :
-                    `${this.props.questions} - card(s)`
+                    `${this.props.questions} card(s)`
                 }</Text>
                 <Ionicons name="md-albums" size={25} style={{ color: '#333', paddingTop: 5 }} />
             </TouchableOpacity>

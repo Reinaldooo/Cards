@@ -2,9 +2,11 @@ import React from 'react';
 import Main from './components/Main';
 import ViewDeck from './components/ViewDeck';
 import AddDeck from './components/AddDeck';
+import AddCard from './components/AddCard';
 import { TabNavigator, StackNavigator } from 'react-navigation';
-import { StatusBar, View } from 'react-native';
+import { StatusBar, View, AsyncStorage } from 'react-native';
 import { Constants } from 'expo';
+import { createDecks } from './utils/API';
 
 const Tabs = TabNavigator({
   Main: {
@@ -60,6 +62,16 @@ const MainNavigator = StackNavigator({
         backgroundColor: '#E53935',
       }
     }),
+  },
+  AddCard: {
+    screen: AddCard,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Add Card',
+      headerTintColor: 'white',
+      headerStyle: {
+        backgroundColor: '#E53935',
+      }
+    }),
   }
 })
 
@@ -72,6 +84,10 @@ function UdaciStatusBar({ backgroundColor, ...props }) {
 }
 
 export default class App extends React.Component {
+
+  componentDidMount() {
+    createDecks();
+  }
  
   render() {
     return (

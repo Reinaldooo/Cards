@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, AsyncStorage } from 'react-native';
 
 
 export default class ViewDeck extends React.Component {
  
   render() {
-    const { textStyle, mainContainer, btn, btnBlue } = styles
+    const { textStyle, mainContainer, btn, btnBlue, btnDanger } = styles
 
     return (
       
@@ -17,16 +17,25 @@ export default class ViewDeck extends React.Component {
               this.props.navigation.state.params.questions === 0 ?
                 'No cards yet!'
                 :
-                `${this.props.navigation.state.params.questions} - card(s)`
+                `${this.props.navigation.state.params.questions} card(s)`
             }
             </Text>
 
             <View style={{ marginTop: 70 }}>
-            <TouchableOpacity style={btn}>
+            <TouchableOpacity style={btn} onPress={() => 
+                this.props.navigation.navigate('AddCard', {
+                deckId: this.props.navigation.state.params.deckId
+            })}>
                 <Text style={{ fontSize: 20 }}>Add Card</Text>          
             </TouchableOpacity>
             <TouchableOpacity style={btnBlue}>
                 <Text style={{ fontSize: 20 }}>Start Quiz</Text>          
+            </TouchableOpacity>
+            <TouchableOpacity style={btnDanger} onPress={() => {
+                AsyncStorage.removeItem(this.props.navigation.state.params.deckId)
+                this.props.navigation.navigate('Main', {update: true})
+                }}>
+                <Text style={{ fontSize: 20 }}>Delete Deck</Text>          
             </TouchableOpacity>
             </View>
 
@@ -55,6 +64,12 @@ const styles = StyleSheet.create({
     marginTop: 30,
     borderWidth: 1.5,
     borderColor: '#333',
+  },
+  btnDanger: {
+    borderRadius: 5,
+    padding: 20,
+    marginTop: 30,
+    backgroundColor: '#E53935'
   },
   btnBlue: {
     borderRadius: 5,

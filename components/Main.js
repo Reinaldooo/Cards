@@ -8,7 +8,6 @@ export default class Main extends React.Component {
   state = {}
 
   componentDidMount() {
-    createDecks();
     AsyncStorage.getAllKeys((err, keys) => {
       AsyncStorage.multiGet(keys, (err, decks) => {
        this.setState({ decks });
@@ -20,6 +19,8 @@ export default class Main extends React.Component {
     AsyncStorage.getAllKeys((err, keys) => {
       AsyncStorage.multiGet(keys, (err, decks) => {
         this.setState({ decks });
+        console.log( decks );
+        console.log( this.state );
       });
     });
   }
@@ -29,9 +30,15 @@ export default class Main extends React.Component {
       <View style={{ backgroundColor: 'white' }}>
       <ScrollView>
       {this.state.decks ? this.state.decks.map((deck) => 
-        <DeckContainer navigation={this.props.navigation} key={JSON.parse(deck[1]).id} deckName={JSON.parse(deck[1]).title} questions={JSON.parse(deck[1]).questions.length} />
+        <DeckContainer
+        navigation={this.props.navigation}
+        key={JSON.parse(deck[1]).id}
+        deckName={JSON.parse(deck[1]).title}
+        questions={JSON.parse(deck[1]).questions.length}
+        deckId={JSON.parse(deck[1]).id}
+        />
       ) :
-        <DeckContainer deckName="Loading..." questions="Please wait" />
+        <DeckContainer deckName="Please wait..." questions="Loading" />
       }
       </ScrollView>
       </View>
