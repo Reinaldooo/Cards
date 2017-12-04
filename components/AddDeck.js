@@ -30,8 +30,9 @@ export default class AddDeck extends React.Component {
             value={this.state.deckName}
             style={inputStyle}
             placeholder='Deck Name'
-            autoCorrect={false}
             onChangeText={deckName => this.setState({ deckName })}
+            placeholderTextColor='#616161'
+            underlineColorAndroid='transparent'
         />
         <TouchableOpacity 
         style={btnFocus}
@@ -54,9 +55,14 @@ const styles = StyleSheet.create({
   },
   inputStyle: {
     fontSize: 30,
-    color: '#424242',
+    color: '#9E9E9E',
     height: 60,
-    width: 300
+    width: 300,    
+    borderWidth: 0.5,
+    borderColor: '#424242',
+    borderRadius: 5,
+    paddingLeft: 15,
+    margin: 10
   },
   btnFocus: {
     borderRadius: 5,
