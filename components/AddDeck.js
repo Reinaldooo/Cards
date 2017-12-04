@@ -13,7 +13,8 @@ export default class AddDeck extends React.Component {
     const newDeck = { 
         title: this.state.deckName,
         questions: [],
-        id
+        id,
+        tried: "You did not practiced this deck today"
       }
     AsyncStorage.setItem(id, JSON.stringify(newDeck));
     this.setState({
@@ -36,6 +37,7 @@ export default class AddDeck extends React.Component {
             onChangeText={deckName => this.setState({ deckName })}
             placeholderTextColor='#616161'
             underlineColorAndroid='transparent'
+            autoCapitalize='sentences'
         />
         <TouchableOpacity 
         style={btnFocus}
