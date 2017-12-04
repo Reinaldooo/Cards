@@ -1,3 +1,8 @@
+IOS Homescreen            |  Android Homescreen
+:-------------------------:|:-------------------------:
+![IOS GIF](/IOS.gif)  |  ![Android GIF](/Android.gif)
+
+
 ### React Nanodegree Program
 #### UdaciCards Project
 
@@ -21,11 +26,6 @@ You can create a deck, then add cards to it, so you can quiz yourself later.
 * Your phone will load up the app.
 * In case of trouble you can shake your phone and tap on `Reload/Refresh`
 
-
-
-IOS Homescreen            |  Android Homescreen
-:-------------------------:|:-------------------------:
-![IOS GIF](/IOS.gif)  |  ![Android GIF](/Android.gif)
 
 --
 **Reinaldo Trindade**
