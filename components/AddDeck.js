@@ -16,6 +16,9 @@ export default class AddDeck extends React.Component {
         id
       }
     AsyncStorage.setItem(id, JSON.stringify(newDeck));
+    this.setState({
+      deckName: ''
+  });
     this.props.navigation.navigate('Main', { update: true });
   }
  

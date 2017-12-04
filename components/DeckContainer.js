@@ -40,6 +40,9 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         borderWidth: 1,
         borderColor: 'white',
-        margin: 20
+        marginTop: 35,
+        marginLeft: 20,
+        marginRight: 20,
+        marginBottom: 5,
     }
   });

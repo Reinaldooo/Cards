@@ -21,6 +21,11 @@ export default class AddCard extends React.Component {
             AsyncStorage.setItem(this.props.navigation.state.params.deckId, JSON.stringify(data));
     });
 
+    this.setState({
+      question: '',
+      answer: ''
+  });
+
     this.props.navigation.navigate('Main');
   }
  
