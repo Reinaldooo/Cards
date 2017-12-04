@@ -13,19 +13,16 @@ export default class AddCard extends React.Component {
         question: this.state.question.trim(),
         answer: this.state.answer.trim()
   };
-
   AsyncStorage.getItem(this.props.navigation.state.params.deckId)
       .then(data => {
             data = JSON.parse(data);
             data.questions = data.questions.concat(newcard);
             AsyncStorage.setItem(this.props.navigation.state.params.deckId, JSON.stringify(data));
   });
-
   this.setState({
       question: '',
       answer: ''
   });
-
   this.props.navigation.navigate('Main');
   }
  

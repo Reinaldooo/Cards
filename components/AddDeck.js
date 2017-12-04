@@ -24,7 +24,7 @@ export default class AddDeck extends React.Component {
   }
  
   render() {
-    const { inputStyle, mainContainer, btnFocus } = styles
+    const { inputStyle, mainContainer, btnFocus } = styles;
 
     return (
       

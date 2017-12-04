@@ -22,7 +22,6 @@ export default class DeckContainer extends Component {
 
     render() {
         const { textStyle, viewStyle } = styles;
-
         return (
             <TouchableOpacity 
                 style={this.props.tried === "You did not practiced this deck today" ? viewStyle : [viewStyle, { borderColor: '#E53935' }]}

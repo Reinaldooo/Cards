@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, ScrollView, AsyncStorage, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, ScrollView, AsyncStorage } from 'react-native';
 import DeckContainer from './DeckContainer';
 
 
@@ -24,7 +24,6 @@ export default class Main extends React.Component {
   }
 
   render() {
-    const { textStyle, mainContainer, btn } = styles;
     return (
       <View style={{ backgroundColor: '#333333', flex: 1, paddingTop: 20 }}>
         <ScrollView>

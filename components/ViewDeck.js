@@ -25,8 +25,7 @@ export default class ViewDeck extends React.Component {
  
   render() {
     const { textStyle, mainContainer, btn, btnFocus, btnDanger, btnDelete } = styles;
-    return (
-      
+    return (      
       <View style={[mainContainer]}>
         {this.props.navigation.state.params &&
           <View style={{alignItems: 'center'}}>

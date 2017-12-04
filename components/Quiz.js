@@ -65,7 +65,7 @@ export default class Quiz extends React.Component {
     const last = this.state.lastQuestion;
 
     this.setState((prevstate, props) => {
-      if(check > last) {
+      if (check > last) {
         return {        
           question: true,
           quizEnded: true
@@ -119,8 +119,7 @@ export default class Quiz extends React.Component {
   }
  
   render() {
-
-    const { textStyle, mainContainer, btn, btnFocus, btnDanger, btnDelete } = styles;
+    const { textStyle, mainContainer, btn } = styles;
     const questions = this.state.lastQuestion + 1;
     const percentage = this.state.score / questions;
 
