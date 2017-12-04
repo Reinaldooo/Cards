@@ -1,4 +1,4 @@
-## React Nanodegree Program
+### React Nanodegree Program
 #### UdaciCards Project
 
 This is an cross-platform app to help you practice your knowledge on your favourite topics.
