@@ -36,6 +36,7 @@ You can create a deck, then add cards to it, so you can quiz yourself later.
 * `sort-by`
 * `uuid`
 
-
+___
 > **Reinaldo Trindade**
-> *Web Developer*
+
+> Web Developer
