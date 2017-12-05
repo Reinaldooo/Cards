@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, AsyncStorage } from 'react-native';
-import { clearLocalNotification, setLocalNotification } from '../utils/helpers'
+import { clearLocalNotification, setLocalNotification } from '../utils/helpers';
+import { red, white } from '../utils/Colors';
 
 const CardsCount = ({ questions, textStyle }) => {
   if(questions === 1) {
@@ -135,7 +136,7 @@ export default class Quiz extends React.Component {
             <TouchableOpacity
             style={[btn, { marginTop: 60 }]}
             onPress={() => this.setState({ question: false })}>
-                <Text style={{ fontSize: 20, color: 'white' }}>Answer</Text>          
+                <Text style={{ fontSize: 20, color: white }}>Answer</Text>          
             </TouchableOpacity>
             </View>
             :
@@ -143,14 +144,14 @@ export default class Quiz extends React.Component {
             <Text style={[textStyle, { fontSize: 30, marginTop: 50, padding: 15, textAlign: 'center' }]}>{this.state.deck.questions[this.state.currentQuestion].answer}</Text>
             <View style={{alignItems: 'center', marginTop: 60, flexDirection: 'row' }}>
             <TouchableOpacity
-            style={[btn, { borderColor: 'white', flex: 1, marginLeft: 20, marginRight: 5 }]}
+            style={[btn, { borderColor: white, flex: 1, marginLeft: 20, marginRight: 5 }]}
             onPress={this.correct}>
-                <Text style={{ fontSize: 20, color: 'white' }}>Correct</Text>          
+                <Text style={{ fontSize: 20, color: white }}>Correct</Text>          
             </TouchableOpacity>
             <TouchableOpacity
             style={[btn, { borderColor: 'red', flex: 1, marginRight: 20, marginLeft: 5 }]}
             onPress={this.incorrect}>
-                <Text style={{ fontSize: 20, color: 'white' }}>Incorrect</Text>          
+                <Text style={{ fontSize: 20, color: white }}>Incorrect</Text>          
             </TouchableOpacity>
             </View>
             </View>
@@ -171,21 +172,21 @@ Study more and try again!`
           <View>
           <Text style={[textStyle, { fontSize: 20, marginTop: 30, padding: 15, textAlign: 'center', color: 'gray' }]}>Would you like to get daily reminders?</Text>
           <TouchableOpacity 
-            style={[btn, { borderColor: 'white', marginTop: 8 }]}
+            style={[btn, { borderColor: white, marginTop: 8 }]}
             onPress={() => this.endQuizWithNotification(Math.floor(percentage * 100))}>
-                <Text style={{ fontSize: 20, color: 'white'}}>Yep!</Text>          
+                <Text style={{ fontSize: 20, color: white}}>Yep!</Text>          
           </TouchableOpacity>
           <TouchableOpacity
-          style={[btn, { borderColor: 'white', marginTop: 8 }]}
+          style={[btn, { borderColor: white, marginTop: 8 }]}
           onPress={() => this.endQuizWithoutNotification(Math.floor(percentage * 100))}>
-                <Text style={{ fontSize: 20, color: 'white'}}>Nope!</Text>          
+                <Text style={{ fontSize: 20, color: white}}>Nope!</Text>          
           </TouchableOpacity>
           </View>
           :
           <TouchableOpacity 
-            style={[btn, { borderColor: 'white', marginTop: 8 }]}
+            style={[btn, { borderColor: white, marginTop: 8 }]}
             onPress={() => this.endQuiz(Math.floor(percentage * 100))}>
-                <Text style={{ fontSize: 20, color: 'white'}}>Home</Text>          
+                <Text style={{ fontSize: 20, color: white}}>Home</Text>          
           </TouchableOpacity>
           }
           </View>
@@ -205,7 +206,7 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     fontSize: 20,
-    color: 'white',
+    color: white,
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -213,14 +214,14 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     borderWidth: 1.5,
-    borderColor: 'white',    
+    borderColor: white,    
     alignItems: 'center'
   },
   btnDanger: {
     borderRadius: 5,
     padding: 5,
     marginTop: 60,
-    backgroundColor: '#E53935',
+    backgroundColor: red,
     alignItems: 'center'
   },
   btnDelete: {
@@ -228,7 +229,7 @@ const styles = StyleSheet.create({
     padding: 5,
     marginTop: 60,
     borderWidth: 1.5,
-    borderColor: '#E53935',    
+    borderColor: red,    
     alignItems: 'center'
   },
   btnFocus: {
@@ -236,7 +237,7 @@ const styles = StyleSheet.create({
     padding: 20,
     marginTop: 20,    
     borderWidth: 1.5,
-    borderColor: '#E53935',
+    borderColor: red,
     alignItems: 'center'
   },
   container: {

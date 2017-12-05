@@ -10,7 +10,10 @@ export default class Main extends React.Component {
   componentDidMount() {
     AsyncStorage.getAllKeys((err, keys) => {
       AsyncStorage.multiGet(keys, (err, decks) => {
-       this.setState({ decks: decks.filter((deck) => deck[0] !== "UdaciCards:notifications" && deck[0] !== "reminderSet") });
+       this.setState({ decks: decks.filter((deck) => deck[0] !== "UdaciCards:notifications" && deck[0] !== "reminderSet")
+       .map(deck => JSON.parse(deck[1]))
+       });
+       console.log(this.state.decks)
       });
     });
   }
@@ -18,7 +21,9 @@ export default class Main extends React.Component {
     nextProps.navigation.state.params &&
     AsyncStorage.getAllKeys((err, keys) => {
       AsyncStorage.multiGet(keys, (err, decks) => {
-        this.setState({ decks: decks.filter((deck) => deck[0] !== "UdaciCards:notifications" && deck[0] !== "reminderSet") });
+        this.setState({ decks: decks.filter((deck) => deck[0] !== "UdaciCards:notifications" && deck[0] !== "reminderSet")
+        .map(deck => JSON.parse(deck[1]))
+        });
       });
     });
   }
@@ -30,11 +35,11 @@ export default class Main extends React.Component {
           {this.state.decks ? this.state.decks.map((deck) => 
             <DeckContainer
               navigation={this.props.navigation}
-              key={JSON.parse(deck[1]).id}
-              deckName={JSON.parse(deck[1]).title}
-              questions={JSON.parse(deck[1]).questions.length}
-              deckId={JSON.parse(deck[1]).id}
-              tried={JSON.parse(deck[1]).tried}
+              key={deck.id}
+              deckName={deck.title}
+              questions={deck.questions.length}
+              deckId={deck.id}
+              tried={deck.tried}
             />)
           :
             <DeckContainer deckName="Please wait..." questions="Loading" />

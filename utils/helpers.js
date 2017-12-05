@@ -5,7 +5,7 @@ import { Notifications, Permissions } from 'expo'
 const NOTIFICATION_KEY = 'UdaciCards:notifications'
 // import uuidv4 from 'uuid/v4'
 
-export function createDecks() {
+export const createDecks = () => {
     
       AsyncStorage.setItem("1", JSON.stringify({
         title: 'React',
@@ -49,12 +49,12 @@ export function createDecks() {
 };
 
 
-export function clearLocalNotification() {
+export const clearLocalNotification = () => {
   return AsyncStorage.removeItem(NOTIFICATION_KEY)
     .then(Notifications.cancelAllScheduledNotificationsAsync)
 }
 
-function createNotification() {
+const createNotification = () => {
   return {
     title: 'Practice your skills on your decks!',
     body: "👋 don't forget to test your knowledge!",
@@ -70,7 +70,7 @@ function createNotification() {
   }
 }
 
-export function setLocalNotification() {
+export const setLocalNotification = () => {
   AsyncStorage.getItem(NOTIFICATION_KEY)
     .then(JSON.parse)
     .then((data) => {
@@ -84,7 +84,6 @@ export function setLocalNotification() {
               tomorrow.setDate(tomorrow.getDate() + 1)
               tomorrow.setHours(20)
               tomorrow.setMinutes(0)
-              console.log(tomorrow)
 
               Notifications.scheduleLocalNotificationAsync(
                 createNotification(),
