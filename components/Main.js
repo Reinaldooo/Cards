@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, ScrollView, AsyncStorage } from 'react-native';
+import { StyleSheet, View, FlatList, AsyncStorage } from 'react-native';
 import sortBy from 'sort-by';
 import DeckContainer from './DeckContainer';
 
@@ -14,8 +14,9 @@ export default class Main extends React.Component {
        this.setState({ decks: decks.filter((deck) => deck[0] !== "UdaciCards:notifications" && deck[0] !== "reminderSet")
        .map(deck => JSON.parse(deck[1]))
        .sort(sortBy('title'))
-       });
-      });
+       });       
+        console.log(this.state)
+      });      
     });
   }
   componentWillReceiveProps(nextProps) {
@@ -26,6 +27,8 @@ export default class Main extends React.Component {
         .map(deck => JSON.parse(deck[1]))
         .sort(sortBy('title'))
         });
+        console.log(this.state);
+        console.log("Depois");
       });
     });
   }
@@ -33,20 +36,22 @@ export default class Main extends React.Component {
   render() {
     return (
       <View style={{ backgroundColor: '#333333', flex: 1, paddingTop: 20 }}>
-        <ScrollView>
-          {this.state.decks ? this.state.decks.map((deck) => 
-            <DeckContainer
-              navigation={this.props.navigation}
-              key={deck.id}
-              deckName={deck.title}
-              questions={deck.questions.length}
-              deckId={deck.id}
-              tried={deck.tried}
-            />)
+          {this.state.decks ?
+            <FlatList
+              data={this.state.decks}
+              renderItem={({item}) => 
+                <DeckContainer
+                navigation={this.props.navigation}
+                key={item.id}
+                deckName={item.title}
+                questions={item.questions.length}
+                deckId={item.id}
+                tried={item.tried}
+                />
+            }/>
           :
             <DeckContainer deckName="Please wait..." questions="Loading" />
           }
-        </ScrollView>
       </View>
     );
   }

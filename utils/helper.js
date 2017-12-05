@@ -19,8 +19,9 @@ export const createDecks = () => {
             answer: 'The componentDidMount lifecycle event'
           }
         ],
-        id: "1",
-        tried: "You did not practiced this deck today"
+        id: "4545554564-5156456",
+        tried: "You did not practiced this deck today",
+        key: "4545554564-5156456"
       }));
 
       AsyncStorage.setItem("2", JSON.stringify({
@@ -31,15 +32,17 @@ export const createDecks = () => {
             answer: 'The combination of a function and the lexical environment within which that function was declared.'
           }
         ],
-        id: "2",
-        tried: "You did not practiced this deck today"
+        id: "2545154554546-568464",
+        tried: "You did not practiced this deck today",
+        key: "2545154554546-568464"
       }));
 
       AsyncStorage.setItem("3", JSON.stringify({
         title: 'Native',
         questions: [],
-        id: "3",
-        tried: "You did not practiced this deck today"
+        id: "54545654654-56556646",
+        tried: "You did not practiced this deck today",
+        key: "54545654654-56556646"
       }));
 
 };

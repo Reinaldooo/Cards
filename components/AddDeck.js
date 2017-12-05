@@ -14,10 +14,11 @@ export default class AddDeck extends React.Component {
     } else {
       const id = uuidv4()
       const newDeck = { 
+          id,
           title: this.state.deckName,
           questions: [],
-          id,
-          tried: "You did not practiced this deck today"
+          tried: "You did not practiced this deck today",
+          key: id
         }
       AsyncStorage.setItem(id, JSON.stringify(newDeck));
 
