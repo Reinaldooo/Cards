@@ -3,8 +3,8 @@ IOS Homescreen            |  Android Homescreen
 ![IOS GIF](/IOS.gif)  |  ![Android GIF](/Android.gif)
 
 
-### React Nanodegree Program
-#### UdaciCards Project
+## React Nanodegree Program
+### UdaciCards Project
 
 
 This is an cross-platform app to help you practice your knowledge on your favourite topics.
@@ -27,7 +27,16 @@ You can create a deck, then add cards to it, so you can quiz yourself later.
 * Your phone will load up the app.
 * In case of trouble you can shake your phone and tap on `Reload/Refresh`
 
+#### This project only needs the following external dependencies:
 
---
+* `expo`
+* `react`
+* `react-native`
+* `react-navigation`
+* `sort-by`
+* `uuid`
+
+
+# 
 **Reinaldo Trindade**
 *Web Developer*
