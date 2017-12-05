@@ -1,7 +1,7 @@
 import React from 'react';
 import { StatusBar, View, Platform, AsyncStorage } from 'react-native';
 import { Constants } from 'expo';
-import { createDecks } from './utils/helpers';
+import { createDecks } from './utils/helper';
 import { MainNavigator } from './utils/navigate';
 
 

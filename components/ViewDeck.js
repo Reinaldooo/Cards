@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, AsyncStorage, Platform } from 'react-native';
-import { red, white } from '../utils/colors';
+import { red, white } from '../utils/colorNames';
 
 const CardsCount = ({ questions, textStyle }) => {
   if(questions === 0) {

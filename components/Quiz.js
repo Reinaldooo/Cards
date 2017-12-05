@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, AsyncStorage } from 'react-native';
-import { clearLocalNotification, setLocalNotification } from '../utils/helpers';
-import { red, white } from '../utils/colors';
+import { clearLocalNotification, setLocalNotification } from '../utils/helper';
+import { red, white } from '../utils/colorNames';
 
 const CardsCount = ({ questions, textStyle }) => {
   if(questions === 1) {
