@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, ScrollView, AsyncStorage } from 'react-native';
+import sortBy from 'sort-by';
 import DeckContainer from './DeckContainer';
 
 
@@ -12,6 +13,7 @@ export default class Main extends React.Component {
       AsyncStorage.multiGet(keys, (err, decks) => {
        this.setState({ decks: decks.filter((deck) => deck[0] !== "UdaciCards:notifications" && deck[0] !== "reminderSet")
        .map(deck => JSON.parse(deck[1]))
+       .sort(sortBy('title'))
        });
       });
     });
@@ -22,6 +24,7 @@ export default class Main extends React.Component {
       AsyncStorage.multiGet(keys, (err, decks) => {
         this.setState({ decks: decks.filter((deck) => deck[0] !== "UdaciCards:notifications" && deck[0] !== "reminderSet")
         .map(deck => JSON.parse(deck[1]))
+        .sort(sortBy('title'))
         });
       });
     });
