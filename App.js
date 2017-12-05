@@ -2,7 +2,7 @@ import React from 'react';
 import { StatusBar, View, Platform, AsyncStorage } from 'react-native';
 import { Constants } from 'expo';
 import { createDecks } from './utils/helpers';
-import { MainNavigator } from './utils/navigators';
+import { MainNavigator } from './utils/navigate';
 
 
 function UdaciStatusBar({ backgroundColor, ...props }) {
