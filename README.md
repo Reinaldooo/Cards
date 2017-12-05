@@ -37,6 +37,5 @@ You can create a deck, then add cards to it, so you can quiz yourself later.
 * `uuid`
 
 
-# 
-**Reinaldo Trindade**
-*Web Developer*
+> **Reinaldo Trindade**
+> *Web Developer*
