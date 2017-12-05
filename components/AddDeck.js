@@ -9,18 +9,27 @@ export default class AddDeck extends React.Component {
   }  
 
   textHandle = () => {
-    const id = uuidv4()
-    const newDeck = { 
-        title: this.state.deckName,
-        questions: [],
-        id,
-        tried: "You did not practiced this deck today"
-      }
-    AsyncStorage.setItem(id, JSON.stringify(newDeck));
-    this.setState({
-      deckName: ''
-  });
-    this.props.navigation.navigate('Main', { update: true });
+    if(this.state.deckName === '') {
+      alert('Please include a deck name.')
+    } else {
+      const id = uuidv4()
+      const newDeck = { 
+          title: this.state.deckName,
+          questions: [],
+          id,
+          tried: "You did not practiced this deck today"
+        }
+      AsyncStorage.setItem(id, JSON.stringify(newDeck));
+
+      this.setState({ deckName: ''});
+
+      this.props.navigation.navigate('ViewDeck', {
+        deckName: newDeck.title,
+        questions: newDeck.questions.length,
+        deckId: id,
+        home: true
+      });
+    }     
   }
  
   render() {

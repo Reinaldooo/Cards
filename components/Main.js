@@ -13,7 +13,6 @@ export default class Main extends React.Component {
        this.setState({ decks: decks.filter((deck) => deck[0] !== "UdaciCards:notifications" && deck[0] !== "reminderSet")
        .map(deck => JSON.parse(deck[1]))
        });
-       console.log(this.state.decks)
       });
     });
   }

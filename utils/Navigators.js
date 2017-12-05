@@ -7,7 +7,7 @@ import AddDeck from '../components/AddDeck';
 import AddCard from '../components/AddCard';
 import Quiz from '../components/Quiz';
 import { Platform } from 'react-native';
-import { red, white } from './Colors'
+import { red, white } from './colors'
 
 const Tabs = TabNavigator({
     Main: {

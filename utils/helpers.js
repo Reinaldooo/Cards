@@ -17,10 +17,6 @@ export const createDecks = () => {
           {
             question: 'Where do you make Ajax requests in React?',
             answer: 'The componentDidMount lifecycle event'
-          },
-          {
-            question: 'Bla?',
-            answer: 'BlaBla'
           }
         ],
         id: "1",

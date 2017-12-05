@@ -9,22 +9,33 @@ export default class AddCard extends React.Component {
   }  
 
   textHandle = () => {
-    const newcard = { 
-        question: this.state.question.trim(),
-        answer: this.state.answer.trim()
-  };
-  AsyncStorage.getItem(this.props.navigation.state.params.deckId)
-      .then(data => {
-            data = JSON.parse(data);
-            data.questions = data.questions.concat(newcard);
-            AsyncStorage.setItem(this.props.navigation.state.params.deckId, JSON.stringify(data));
-  });
-  this.setState({
-      question: '',
-      answer: ''
-  });
-  this.props.navigation.navigate('Main');
-  }
+    if(this.state.question === '' || this.state.answer === '') {
+    alert('Please fill both fields.')
+    } else {
+      const deck = this.props.navigation.state.params
+      const newcard = { 
+          question: this.state.question.trim(),
+          answer: this.state.answer.trim()
+      };
+      AsyncStorage.getItem(this.props.navigation.state.params.deckId)
+          .then(data => {
+                data = JSON.parse(data);
+                data.questions = data.questions.concat(newcard);
+                AsyncStorage.setItem(this.props.navigation.state.params.deckId, JSON.stringify(data));
+      });
+      this.setState({
+          question: '',
+          answer: ''
+      });
+      this.props.navigation.navigate('ViewDeck', {
+        deckName: deck.deckName,
+        questions: deck.questions + 1,
+        deckId: deck.deckId
+      });
+    }
+}
+
+
  
   render() {
     const { inputStyle, mainContainer, btnFocus } = styles;

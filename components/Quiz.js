@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, AsyncStorage } from 'react-native';
 import { clearLocalNotification, setLocalNotification } from '../utils/helpers';
-import { red, white } from '../utils/Colors';
+import { red, white } from '../utils/colors';
 
 const CardsCount = ({ questions, textStyle }) => {
   if(questions === 1) {
@@ -24,11 +24,15 @@ export default class Quiz extends React.Component {
     score: 0,
     question: true,
     remind: undefined,
+    restartHelper: null
   }
 
   componentDidMount() {
     AsyncStorage.getItem(this.props.navigation.state.params.deckId, (err, result) => {
-      this.setState({ deck: JSON.parse(result), lastQuestion: JSON.parse(result).questions.length - 1 })
+      this.setState({ 
+        deck: JSON.parse(result), 
+        lastQuestion: JSON.parse(result).questions.length - 1,
+        restartHelper: JSON.parse(result).questions.length - 1 })
     });    
     AsyncStorage.getItem("reminderSet", (err, result) => {
       if(result == "yes"){
@@ -90,9 +94,7 @@ export default class Quiz extends React.Component {
     });
     AsyncStorage.setItem("reminderSet", 'yes');
     clearLocalNotification().then(setLocalNotification);
-    this.props.navigation.navigate('Main', {
-      updated: true
-    })
+    this.setState({ remind: undefined })
   }
   endQuizWithoutNotification = (percentage) => {
     AsyncStorage.getItem(this.props.navigation.state.params.deckId)
@@ -102,9 +104,7 @@ export default class Quiz extends React.Component {
           AsyncStorage.setItem(this.props.navigation.state.params.deckId, JSON.stringify(data));
     });
     AsyncStorage.setItem("reminderSet", 'yes');
-    this.props.navigation.navigate('Main', {
-      updated: true
-    })
+    this.setState({ remind: undefined })
   }
   endQuiz = (percentage) => {
     AsyncStorage.getItem(this.props.navigation.state.params.deckId)
@@ -118,7 +118,20 @@ export default class Quiz extends React.Component {
       updated: true
     })
   }
- 
+  backToDeck = (percentage) => {
+    AsyncStorage.getItem(this.props.navigation.state.params.deckId)
+    .then(data => {
+          data = JSON.parse(data);
+          data.tried = `You got a score of ${percentage}%`;
+          AsyncStorage.setItem(this.props.navigation.state.params.deckId, JSON.stringify(data));
+    });
+    this.props.navigation.navigate('ViewDeck', {
+      deckName: this.state.deck.title,
+      questions: this.state.deck.questions.length,
+      deckId: this.state.deck.id
+    })
+  }
+   
   render() {
     const { textStyle, mainContainer, btn } = styles;
     const questions = this.state.lastQuestion + 1;
@@ -132,7 +145,7 @@ export default class Quiz extends React.Component {
             <Text style={textStyle}>{`Question ${this.state.currentQuestion + 1} of ${this.state.lastQuestion + 1}`}</Text>
             {this.state.question ?
             <View style={{alignItems: 'center' }}>
-            <Text style={[textStyle, { fontSize: 50, marginTop: 50, textAlign: 'center' }]}>{this.state.deck.questions[this.state.currentQuestion].question}</Text>
+            <Text style={[textStyle, { fontSize: 30, marginTop: 50, textAlign: 'center' }]}>{this.state.deck.questions[this.state.currentQuestion].question}</Text>
             <TouchableOpacity
             style={[btn, { marginTop: 60 }]}
             onPress={() => this.setState({ question: false })}>
@@ -141,7 +154,7 @@ export default class Quiz extends React.Component {
             </View>
             :
             <View style={{alignItems: 'center' }}>
-            <Text style={[textStyle, { fontSize: 30, marginTop: 50, padding: 15, textAlign: 'center' }]}>{this.state.deck.questions[this.state.currentQuestion].answer}</Text>
+            <Text style={[textStyle, { fontSize: 20, marginTop: 50, padding: 15, textAlign: 'center', color: 'gray' }]}>{this.state.deck.questions[this.state.currentQuestion].answer}</Text>
             <View style={{alignItems: 'center', marginTop: 60, flexDirection: 'row' }}>
             <TouchableOpacity
             style={[btn, { borderColor: white, flex: 1, marginLeft: 20, marginRight: 5 }]}
@@ -183,11 +196,33 @@ Study more and try again!`
           </TouchableOpacity>
           </View>
           :
+          <View style={{ marginTop: 60 }}>
+          
           <TouchableOpacity 
             style={[btn, { borderColor: white, marginTop: 8 }]}
             onPress={() => this.endQuiz(Math.floor(percentage * 100))}>
-                <Text style={{ fontSize: 20, color: white}}>Home</Text>          
+                <Text style={{ fontSize: 20, color: white}}>End Quiz</Text>          
           </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={[btn, { borderColor: red, marginTop: 8 }]}
+            onPress={() => this.setState({ 
+              currentQuestion: 0,
+              lastQuestion: this.state.restartHelper,
+              quizEnded: false,
+              score: 0,
+              question: true
+             })}>
+                <Text style={{ fontSize: 20, color: white}}>Restart Quiz</Text>          
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={[btn, { borderColor: white, marginTop: 8 }]}
+            onPress={() => this.backToDeck(Math.floor(percentage * 100))}>
+                <Text style={{ fontSize: 20, color: white}}>Back to Deck</Text>          
+          </TouchableOpacity>
+
+          </View>
           }
           </View>
         }
