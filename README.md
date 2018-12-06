@@ -19,9 +19,9 @@ You can create a deck, then add cards to it, so you can quiz yourself later.
 * Install the latest version of *node.js* in your PC/MAC if you don't have it. It comes with `npm`.
 * Make sure that you install node with the PATH variable so you can run node anywhere in your command prompt/terminal.
 * Install *Expo* in your mobile device. It works on IOS and Android.
-* [App Store](https://itunes.apple.com/us/app/expo-client/id982107779) Expo for Ios
-* [Google Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent) Expo for Android
-* The environment is now ready. You can now clone this repo using `git clone https://github.com/Reinaldooo/UdaciCards.git`
+* [App Store](https://itunes.apple.com/us/app/expo-client/id982107779) - Expo for Ios
+* [Google Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent) - Expo for Android
+* You can now clone this repo using `git clone https://github.com/Reinaldooo/UdaciCards.git`
 * On your terminal, run `cd UdaciCards/`, then `npm install` to install the dependencies.
 * Run `npm start` and a few seconds later a QR code will popup on your terminal.
 * Make sure your phone is connected to the same network as your pc/mac, open the *Expo* app and tap on `Scan QR Code`
