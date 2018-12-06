@@ -1,6 +1,7 @@
 import React from 'react';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
+import { Constants } from 'expo';
 import Main from '../components/Main';
 import ViewDeck from '../components/ViewDeck';
 import AddDeck from '../components/AddDeck';
@@ -63,6 +64,7 @@ const Tabs = TabNavigator({
         headerTintColor: white,
         headerStyle: {
           backgroundColor: red,
+          marginTop: 0 - Constants.statusBarHeight
         }
       }),
     },
@@ -73,6 +75,7 @@ const Tabs = TabNavigator({
         headerTintColor: white,
         headerStyle: {
           backgroundColor: red,
+          marginTop: 0 - Constants.statusBarHeight
         }
       }),
     },
@@ -83,6 +86,7 @@ const Tabs = TabNavigator({
         headerTintColor: white,
         headerStyle: {
           backgroundColor: red,
+          marginTop: 0 - Constants.statusBarHeight
         }
       }),
     }

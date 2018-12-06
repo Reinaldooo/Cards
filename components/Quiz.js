@@ -182,7 +182,7 @@ Study more and try again!`
           }
           </Text>
           {this.state.remind ?
-          <View>
+          <View style={{justifyContent: "center", alignItems: "center"}}>
           <Text style={[textStyle, { fontSize: 20, marginTop: 30, padding: 15, textAlign: 'center', color: 'gray' }]}>Would you like to get daily reminders?</Text>
           <TouchableOpacity 
             style={[btn, { borderColor: white, marginTop: 8 }]}
@@ -234,10 +234,10 @@ Study more and try again!`
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: '#333',
+    backgroundColor: '#2a2a2f',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    paddingTop: 30
+    paddingTop: "10%"
   },
   textStyle: {
     fontSize: 20,
@@ -247,21 +247,24 @@ const styles = StyleSheet.create({
   },
   btn: {
     borderRadius: 5,
-    padding: 10,
+    paddingVertical: 10, 
+    paddingHorizontal: 20, 
     borderWidth: 1.5,
     borderColor: white,    
     alignItems: 'center'
   },
   btnDanger: {
     borderRadius: 5,
-    padding: 5,
+    paddingVertical: 10, 
+    paddingHorizontal: 20, 
     marginTop: 60,
     backgroundColor: red,
     alignItems: 'center'
   },
   btnDelete: {
     borderRadius: 5,
-    padding: 5,
+    paddingVertical: 10, 
+    paddingHorizontal: 20, 
     marginTop: 60,
     borderWidth: 1.5,
     borderColor: red,    
@@ -269,7 +272,8 @@ const styles = StyleSheet.create({
   },
   btnFocus: {
     borderRadius: 5,
-    padding: 20,
+    paddingVertical: 10, 
+    paddingHorizontal: 20, 
     marginTop: 20,    
     borderWidth: 1.5,
     borderColor: red,

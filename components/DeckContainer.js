@@ -24,7 +24,7 @@ export default class DeckContainer extends Component {
         const { textStyle, viewStyle } = styles;
         return (
             <TouchableOpacity 
-                style={this.props.tried === "You did not practiced this deck today" ? viewStyle : [viewStyle, { borderColor: '#E53935' }]}
+                style={this.props.tried === "You did not practiced this deck today" ? viewStyle : [viewStyle, { borderColor: 'tomato' }]}
                 onPress={() => 
                     this.props.navigation.navigate('ViewDeck', {
                     deckName: this.props.deckName,

@@ -29,10 +29,12 @@ export default class ViewDeck extends React.Component {
     return (      
       <View style={[mainContainer]}>
         {this.props.navigation.state.params &&
-          <View style={{alignItems: 'center'}}>
-            <Text style={[textStyle, { fontSize: 60 }]}>{this.props.navigation.state.params.deckName}</Text>
+          <View style={{flexBasis: "100%", alignItems: "center", flexDirection: 'column', justifyContent: 'space-around'}}>
+            <View style={{ flex: 1, alignItems: "center" }}>
+            <Text style={[textStyle, { fontSize: 50 }]}>{this.props.navigation.state.params.deckName}</Text>
             <CardsCount questions={this.props.navigation.state.params.questions} textStyle={textStyle}/>
-            <View style={{ marginTop: 70 }}>
+            </View>
+            <View style={{ flex: 1.5, flexDirection: 'column', justifyContent: 'space-around' }}>
             <TouchableOpacity style={btn} onPress={() => 
                 this.props.navigation.navigate('AddCard', {
                   deckName: this.props.navigation.state.params.deckName,
@@ -79,51 +81,43 @@ export default class ViewDeck extends React.Component {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    flex: 1,
-    backgroundColor: '#333',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    paddingTop: 50
+    backgroundColor: '#2a2a2f',
+    flexBasis: "100%",
+    paddingTop: "10%"
   },
   textStyle: {
-    fontSize: 30,
+    fontSize: 20,
     color: white
   },
   btn: {
-    borderRadius: 5,
-    padding: 20,
-    marginTop: 30,
+    borderRadius: 5,    
+    paddingVertical: 10, 
+    paddingHorizontal: 20, 
     borderWidth: 1.5,
     borderColor: white,    
     alignItems: 'center'
   },
   btnDanger: {
     borderRadius: 5,
-    padding: 5,
-    marginTop: 90,
+    paddingVertical: 10, 
+    paddingHorizontal: 20, 
     backgroundColor: red,
     alignItems: 'center'
   },
   btnDelete: {
     borderRadius: 5,
-    padding: 5,
-    marginTop: 90,
+    paddingVertical: 10, 
+    paddingHorizontal: 20, 
     borderWidth: 1.5,
     borderColor: red,    
     alignItems: 'center'
   },
   btnFocus: {
     borderRadius: 5,
-    padding: 20,
-    marginTop: 30,    
+    paddingVertical: 10, 
+    paddingHorizontal: 20, 
     borderWidth: 1.5,
     borderColor: red,
     alignItems: 'center'
-  },
-  container: {
-    flex: 1,
-    backgroundColor: '#EEEEEE',
-    alignItems: 'center',
-    justifyContent: 'center',
   }
 });

@@ -7,7 +7,7 @@ const NOTIFICATION_KEY = 'UdaciCards:notifications'
 
 export const createDecks = () => {
     
-      AsyncStorage.setItem("1", JSON.stringify({
+      AsyncStorage.setItem("4545554564-5156456", JSON.stringify({
         title: 'React',
         questions: [
           {
@@ -24,7 +24,7 @@ export const createDecks = () => {
         key: "4545554564-5156456"
       }));
 
-      AsyncStorage.setItem("2", JSON.stringify({
+      AsyncStorage.setItem("2545154554546-568464", JSON.stringify({
         title: 'JavaScript',
         questions: [
           {
@@ -37,14 +37,14 @@ export const createDecks = () => {
         key: "2545154554546-568464"
       }));
 
-      AsyncStorage.setItem("3", JSON.stringify({
+      AsyncStorage.setItem("54545654654-56556646", JSON.stringify({
         title: 'Native',
         questions: [],
         id: "54545654654-56556646",
         tried: "You did not practiced this deck today",
         key: "54545654654-56556646"
       }));
-
+      
 };
 
 

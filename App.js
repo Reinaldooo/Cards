@@ -15,15 +15,16 @@ function UdaciStatusBar({ backgroundColor, ...props }) {
 
 export default class App extends React.Component {
 
-  componentDidMount() {
-    AsyncStorage.clear();
-    createDecks();
+  componentDidMount() {            
+    AsyncStorage.clear()
+    .then(() => createDecks())
+    
   }
  
   render() {    
     return (
       <View style={{ flex: 1 }}>
-      <UdaciStatusBar backgroundColor={Platform.OS === 'ios' ? 'white' : '#E53935'} barStyle="default" />
+      <UdaciStatusBar backgroundColor={Platform.OS === 'ios' ? 'white' : 'tomato'} barStyle="default" />
       <MainNavigator />
       </View>
     );

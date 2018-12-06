@@ -30,7 +30,8 @@ export default class AddCard extends React.Component {
       this.props.navigation.navigate('ViewDeck', {
         deckName: deck.deckName,
         questions: deck.questions + 1,
-        deckId: deck.deckId
+        deckId: deck.deckId,
+        home: true
       });
     }
 }
@@ -74,10 +75,10 @@ export default class AddCard extends React.Component {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: '#333',
+    backgroundColor: '#2a2a2f',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    paddingTop: 50
+    paddingTop: "10%"
   },
   inputStyle: {
     fontSize: 30,
@@ -92,9 +93,10 @@ const styles = StyleSheet.create({
   },
   btnFocus: {
     borderRadius: 5,
-    padding: 20,
-    marginTop: 30,    
+    paddingVertical: 10, 
+    paddingHorizontal: 20, 
     borderWidth: 1.5,
     borderColor: '#E53935',
+    marginTop: 15
   }
 });
