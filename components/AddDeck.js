@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, AsyncStorage } from 'react-native';
-import uuidv4 from 'uuid/v4';
+import uuid from 'uuid';
 
 export default class AddDeck extends React.Component {
 
@@ -12,7 +12,7 @@ export default class AddDeck extends React.Component {
     if(this.state.deckName === '') {
       alert('Please include a deck name.')
     } else {
-      const id = uuidv4()
+      const id = uuid()
       const newDeck = { 
           id,
           title: this.state.deckName,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, FlatList, AsyncStorage } from 'react-native';
+import { View, FlatList, AsyncStorage } from 'react-native';
 import sortBy from 'sort-by';
 import DeckContainer from './DeckContainer';
 
@@ -35,7 +35,6 @@ export default class Main extends React.Component {
   }
 
   componentDidUpdate(nextProps) {
-    console.log("DidUpdate" + Date.now())
     if (nextProps.navigation.state.params) {
       if (nextProps.navigation.state.params !== this.props.navigation.state.params) {
         AsyncStorage.getAllKeys((err, keys) => {
@@ -50,6 +49,7 @@ export default class Main extends React.Component {
   render() {
     return (
       <View style={{ backgroundColor: '#2a2a2f', flex: 1, paddingTop: 20 }}>
+      {console.log(this.state)}
         {this.state.decks[0] ?
           <FlatList
             data={this.state.decks}

@@ -14,13 +14,12 @@ function UdaciStatusBar({ backgroundColor, ...props }) {
 }
 
 export default class App extends React.Component {
-
-  componentDidMount() {            
-    AsyncStorage.clear()
-    .then(() => createDecks())
-    
+  
+  componentDidMount() {         
+    AsyncStorage.clear();
+    createDecks();
   }
- 
+
   render() {    
     return (
       <View style={{ flex: 1 }}>

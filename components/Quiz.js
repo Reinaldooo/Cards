@@ -89,7 +89,11 @@ export default class Quiz extends React.Component {
     AsyncStorage.getItem(this.props.navigation.state.params.deckId)
     .then(data => {
           data = JSON.parse(data);
-          data.tried = `You got a score of ${percentage}%`;
+          if(percentage === 0) {
+            data.tried = `You didn't score in this test!`;
+          } else {
+            data.tried = `You got a score of ${percentage}%`;
+          }
           AsyncStorage.setItem(this.props.navigation.state.params.deckId, JSON.stringify(data));
     });
     AsyncStorage.setItem("reminderSet", 'yes');
@@ -100,20 +104,27 @@ export default class Quiz extends React.Component {
     AsyncStorage.getItem(this.props.navigation.state.params.deckId)
     .then(data => {
           data = JSON.parse(data);
-          data.tried = `You got a score of ${percentage}%`;
+          if(percentage === 0) {
+            data.tried = `You didn't score in this test!`;
+          } else {
+            data.tried = `You got a score of ${percentage}%`;
+          }
           AsyncStorage.setItem(this.props.navigation.state.params.deckId, JSON.stringify(data));
     });
-    AsyncStorage.setItem("reminderSet", 'yes');
+    AsyncStorage.setItem("reminderSet", 'no');
     this.setState({ remind: undefined })
   }
   endQuiz = (percentage) => {
     AsyncStorage.getItem(this.props.navigation.state.params.deckId)
     .then(data => {
           data = JSON.parse(data);
-          data.tried = `You got a score of ${percentage}%`;
+          if(percentage === 0) {
+            data.tried = `You didn't score in this test!`;
+          } else {
+            data.tried = `You got a score of ${percentage}%`;
+          }
           AsyncStorage.setItem(this.props.navigation.state.params.deckId, JSON.stringify(data));
     });
-    AsyncStorage.setItem("reminderSet", 'yes');
     this.props.navigation.navigate('Main', {
       updated: true
     })

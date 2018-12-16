@@ -43,8 +43,7 @@ export const createDecks = () => {
         id: "54545654654-56556646",
         tried: "You did not practiced this deck today",
         key: "54545654654-56556646"
-      }));
-      
+      }));     
 };
 
 
