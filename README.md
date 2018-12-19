@@ -1,6 +1,6 @@
 IOS Homescreen            |  Android Homescreen
 :-------------------------:|:-------------------------:
-![IOS GIF](/IOS.png)  |  ![Android GIF](/Android.gif)
+![IOS GIF](/IOSX.png)  |  ![Android GIF](/Android.gif)
 
 
 ## React Nanodegree Program
