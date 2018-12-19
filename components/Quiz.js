@@ -29,7 +29,6 @@ export default class Quiz extends React.Component {
 
   componentDidMount() {
     AsyncStorage.getItem(this.props.navigation.state.params.deckId, (err, result) => {
-      console.log(result)
       this.setState({ 
         deck: JSON.parse(result), 
         lastQuestion: JSON.parse(result).questions.length - 1,
