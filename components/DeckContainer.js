@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 const CardsCount = ({ questions, textStyle }) => {
@@ -23,8 +23,9 @@ export default class DeckContainer extends Component {
     render() {
         const { textStyle, viewStyle } = styles;
         return (
-            <TouchableOpacity 
-                style={this.props.tried === "You did not practiced this deck today" ? viewStyle : [viewStyle, { borderColor: 'tomato' }]}
+            <TouchableOpacity
+                disabled={this.props.nolink ? true : false} 
+                style={this.props.tried === "You did not practiced this deck today" ? viewStyle : [viewStyle, { borderColor: '#F4511E' }]}
                 onPress={() => 
                     this.props.navigation.navigate('ViewDeck', {
                     deckName: this.props.deckName,
@@ -33,7 +34,7 @@ export default class DeckContainer extends Component {
                 })}>
                 <Text style={[textStyle, { fontSize: 30 }]}>{this.props.deckName}</Text>
                 <CardsCount questions={this.props.questions} textStyle={textStyle}/>
-                <Ionicons name="md-albums" size={25} style={{ color: 'white', paddingTop: 5 }} />
+                <Ionicons name="md-albums" size={25} style={{ color: '#424242', paddingTop: 5 }} />
                 {this.props.tried && <Text style={[textStyle, { fontSize: 10, marginTop: 5 }]}>{this.props.tried}</Text>}
             </TouchableOpacity>
         )
@@ -43,18 +44,27 @@ export default class DeckContainer extends Component {
 const styles = StyleSheet.create({
     textStyle: {
         fontSize: 20,
-        color: 'white'
+        color: '#424242'
     },
     viewStyle: {
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 15,
+        padding: 10,
         borderRadius: 5,
         borderWidth: 1,
-        borderColor: 'white',
+        borderColor: '#757575',
         marginTop: 15,
         marginLeft: 20,
         marginRight: 20,
         marginBottom: 15,
+        backgroundColor: "#FAFAFA",
+        shadowColor: "#757575",
+        shadowOffset: {
+            width: 0,
+            height: 6,
+        },
+        shadowOpacity: .2,
+        shadowRadius: 7.49,        
+        elevation: 12,
     }
   });

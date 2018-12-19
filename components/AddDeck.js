@@ -39,7 +39,7 @@ export default class AddDeck extends React.Component {
     return (
       
       <View style={[mainContainer]}>
-      <Text style={{ fontSize: 30, marginBottom: 15, color: 'white' }}>Add your new deck:</Text>
+      <Text style={{ fontSize: 25, marginBottom: 15, color: '#424242' }}>Add your new deck:</Text>
         <TextInput
             value={this.state.deckName}
             style={inputStyle}
@@ -53,7 +53,7 @@ export default class AddDeck extends React.Component {
         style={btnFocus}
         onPress={this.textHandle}
         >
-            <Text style={{ fontSize: 20, color: 'white' }}>Add</Text>          
+            <Text style={{ fontSize: 20, color: '#424242' }}>Add</Text>          
         </TouchableOpacity>
       </View>
     );
@@ -63,7 +63,7 @@ export default class AddDeck extends React.Component {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: '#2a2a2f',
+    backgroundColor: '#FAFAFA',
     alignItems: 'center',
     justifyContent: 'flex-start',
     paddingTop: "10%"

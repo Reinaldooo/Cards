@@ -1,9 +1,18 @@
 
 import { AsyncStorage } from 'react-native';
+import sortBy from 'sort-by';
 import { Notifications, Permissions } from 'expo'
 
 const NOTIFICATION_KEY = 'UdaciCards:notifications'
 // import uuidv4 from 'uuid/v4'
+
+export const parseDecks = (decks) => {
+  return decks
+    //remove notifications and reminders
+    .filter((deck) => deck[0] !== "UdaciCards:notifications" && deck[0] !== "reminderSet")
+    .map(deck => JSON.parse(deck[1]))
+    .sort(sortBy('title'))
+}
 
 export const createDecks = () => {
     
@@ -39,7 +48,12 @@ export const createDecks = () => {
 
       AsyncStorage.setItem("54545654654-56556646", JSON.stringify({
         title: 'Native',
-        questions: [],
+        questions: [
+          {
+            question: 'Can React-Native work on IOS and Android?',
+            answer: 'Yes.'
+          }
+        ],
         id: "54545654654-56556646",
         tried: "You did not practiced this deck today",
         key: "54545654654-56556646"

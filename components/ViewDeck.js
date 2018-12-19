@@ -41,7 +41,7 @@ export default class ViewDeck extends React.Component {
                   questions: this.props.navigation.state.params.questions,
                   deckId: this.props.navigation.state.params.deckId
             })}>
-                <Text style={{ fontSize: 20, color: white }}>Add Card</Text>          
+                <Text style={{ fontSize: 20, color: '#424242' }}>Add Card</Text>          
             </TouchableOpacity>
 
             {this.props.navigation.state.params.questions > 0 &&
@@ -49,19 +49,19 @@ export default class ViewDeck extends React.Component {
                 this.props.navigation.navigate('Quiz', {
                 deckId: this.props.navigation.state.params.deckId
             })}>
-                <Text style={{ fontSize: 20, color: white }}>Start Quiz</Text>          
+                <Text style={{ fontSize: 20, color: '#424242' }}>Start Quiz</Text>          
             </TouchableOpacity>
             }
             {this.props.navigation.state.params.home &&
             <TouchableOpacity style={btnFocus} onPress={() => 
                 this.props.navigation.navigate('Main')}>
-                <Text style={{ fontSize: 20, color: white }}>Home</Text>          
+                <Text style={{ fontSize: 20, color: '#424242' }}>Home</Text>          
             </TouchableOpacity>
             }
 
             {!this.state.deleteDeck ?
             <TouchableOpacity style={btnDelete} onPress={() => this.setState({ deleteDeck: true })}>
-                <Text style={ Platform.OS === 'ios' ? { fontSize: 17, color: white } : { fontSize: 20, color: white } }>Delete Deck</Text>          
+                <Text style={{ fontSize: 17, color: '#424242' }}>Delete Deck</Text>          
             </TouchableOpacity>
             :
             <TouchableOpacity style={btnDanger} onPress={() => {
@@ -81,20 +81,20 @@ export default class ViewDeck extends React.Component {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    backgroundColor: '#2a2a2f',
+    backgroundColor: '#FAFAFA',
     flexBasis: "100%",
     paddingTop: "10%"
   },
   textStyle: {
     fontSize: 20,
-    color: white
+    color: '#424242'
   },
   btn: {
     borderRadius: 5,    
     paddingVertical: 10, 
     paddingHorizontal: 20, 
     borderWidth: 1.5,
-    borderColor: white,    
+    borderColor: '#424242',    
     alignItems: 'center'
   },
   btnDanger: {

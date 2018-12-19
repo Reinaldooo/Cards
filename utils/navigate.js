@@ -31,13 +31,14 @@ const Tabs = TabNavigator({
       header: null
     },
     tabBarOptions: {
-      activeTintColor: Platform.OS === 'ios' ? red : white,
+      activeTintColor: '#F4511E',
+      inactiveTintColor: '#FF8A65',
       labelStyle: {
-        fontSize: Platform.OS === 'ios' ? 12 : 18,
+        fontSize: Platform.OS === 'ios' ? 12 : 14,
       },
       style: {
         height: 56,
-        backgroundColor: Platform.OS === 'ios' ? white : red,
+        backgroundColor: white,
         shadowColor: 'rgba(0, 0, 0, 0.5)',
         shadowOffset: {
           width: 0,
@@ -55,7 +56,7 @@ const Tabs = TabNavigator({
   
   export const MainNavigator = StackNavigator({
     Home: {
-      screen: Tabs,
+      screen: Tabs
     },
     ViewDeck: {
       screen: ViewDeck,

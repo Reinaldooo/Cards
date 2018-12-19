@@ -160,7 +160,7 @@ export default class Quiz extends React.Component {
             <TouchableOpacity
             style={[btn, { marginTop: 60 }]}
             onPress={() => this.setState({ question: false })}>
-                <Text style={{ fontSize: 20, color: white }}>Answer</Text>          
+                <Text style={{ fontSize: 20, color: '#424242' }}>Answer</Text>          
             </TouchableOpacity>
             </View>
             :
@@ -168,14 +168,14 @@ export default class Quiz extends React.Component {
             <Text style={[textStyle, { fontSize: 20, marginTop: 50, padding: 15, textAlign: 'center', color: 'gray' }]}>{this.state.deck.questions[this.state.currentQuestion].answer}</Text>
             <View style={{alignItems: 'center', marginTop: 60, flexDirection: 'row' }}>
             <TouchableOpacity
-            style={[btn, { borderColor: white, flex: 1, marginLeft: 20, marginRight: 5 }]}
+            style={[btn, { borderColor: '#424242', flex: 1, marginLeft: 20, marginRight: 5 }]}
             onPress={this.correct}>
-                <Text style={{ fontSize: 20, color: white }}>Correct</Text>          
+                <Text style={{ fontSize: 20, color: '#424242' }}>Correct</Text>          
             </TouchableOpacity>
             <TouchableOpacity
-            style={[btn, { borderColor: 'red', flex: 1, marginRight: 20, marginLeft: 5 }]}
+            style={[btn, { borderColor: red, flex: 1, marginRight: 20, marginLeft: 5 }]}
             onPress={this.incorrect}>
-                <Text style={{ fontSize: 20, color: white }}>Incorrect</Text>          
+                <Text style={{ fontSize: 20, color: '#424242' }}>Incorrect</Text>          
             </TouchableOpacity>
             </View>
             </View>
@@ -196,23 +196,23 @@ Study more and try again!`
           <View style={{justifyContent: "center", alignItems: "center"}}>
           <Text style={[textStyle, { fontSize: 20, marginTop: 30, padding: 15, textAlign: 'center', color: 'gray' }]}>Would you like to get daily reminders?</Text>
           <TouchableOpacity 
-            style={[btn, { borderColor: white, marginTop: 8 }]}
+            style={[btn, { borderColor: '#424242', marginTop: 8 }]}
             onPress={() => this.endQuizWithNotification(Math.floor(percentage * 100))}>
-                <Text style={{ fontSize: 20, color: white}}>Yep!</Text>          
+                <Text style={{ fontSize: 20, color: '#424242'}}>Yep!</Text>          
           </TouchableOpacity>
           <TouchableOpacity
-          style={[btn, { borderColor: white, marginTop: 8 }]}
+          style={[btn, { borderColor: '#424242', marginTop: 8 }]}
           onPress={() => this.endQuizWithoutNotification(Math.floor(percentage * 100))}>
-                <Text style={{ fontSize: 20, color: white}}>Nope!</Text>          
+                <Text style={{ fontSize: 20, color: '#424242'}}>Nope!</Text>          
           </TouchableOpacity>
           </View>
           :
           <View style={{ marginTop: 60 }}>
           
           <TouchableOpacity 
-            style={[btn, { borderColor: white, marginTop: 8 }]}
+            style={[btn, { borderColor: '#424242', marginTop: 8 }]}
             onPress={() => this.endQuiz(Math.floor(percentage * 100))}>
-                <Text style={{ fontSize: 20, color: white}}>End Quiz</Text>          
+                <Text style={{ fontSize: 20, color: '#424242'}}>End Quiz</Text>          
           </TouchableOpacity>
 
           <TouchableOpacity 
@@ -224,13 +224,13 @@ Study more and try again!`
               score: 0,
               question: true
              })}>
-                <Text style={{ fontSize: 20, color: white}}>Restart Quiz</Text>          
+                <Text style={{ fontSize: 20, color: '#424242'}}>Restart Quiz</Text>          
           </TouchableOpacity>
 
           <TouchableOpacity 
-            style={[btn, { borderColor: white, marginTop: 8 }]}
+            style={[btn, { borderColor: '#424242', marginTop: 8 }]}
             onPress={() => this.backToDeck(Math.floor(percentage * 100))}>
-                <Text style={{ fontSize: 20, color: white}}>Back to Deck</Text>          
+                <Text style={{ fontSize: 20, color: '#424242'}}>Back to Deck</Text>          
           </TouchableOpacity>
 
           </View>
@@ -245,14 +245,14 @@ Study more and try again!`
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: '#2a2a2f',
+    backgroundColor: '#FAFAFA',
     alignItems: 'center',
     justifyContent: 'flex-start',
     paddingTop: "10%"
   },
   textStyle: {
     fontSize: 20,
-    color: white,
+    color: '#424242',
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -261,7 +261,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10, 
     paddingHorizontal: 20, 
     borderWidth: 1.5,
-    borderColor: white,    
+    borderColor: '#424242',    
     alignItems: 'center'
   },
   btnDanger: {
