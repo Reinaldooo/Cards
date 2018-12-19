@@ -12,7 +12,6 @@ export default class Main extends React.Component {
   handleRefresh = () => {
     AsyncStorage.getAllKeys((err, keys) => {
       AsyncStorage.multiGet(keys, (err, decks) => {
-        console.log(parseDecks(decks))
         this.setState({ decks: parseDecks(decks), refreshing: false });
       });
     }).catch((e) => console.log(e));

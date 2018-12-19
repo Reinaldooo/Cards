@@ -34,7 +34,7 @@ const Tabs = TabNavigator({
       activeTintColor: '#F4511E',
       inactiveTintColor: '#FF8A65',
       labelStyle: {
-        fontSize: Platform.OS === 'ios' ? 12 : 14,
+        fontSize: Platform.OS === 'ios' ? 12 : 18,
       },
       style: {
         height: 56,

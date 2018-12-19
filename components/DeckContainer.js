@@ -56,15 +56,15 @@ const styles = StyleSheet.create({
         marginTop: 15,
         marginLeft: 20,
         marginRight: 20,
-        marginBottom: 15,
+        marginBottom: 20,
         backgroundColor: "#FAFAFA",
         shadowColor: "#757575",
         shadowOffset: {
             width: 0,
-            height: 6,
+            height: 3,
         },
         shadowOpacity: .2,
-        shadowRadius: 7.49,        
-        elevation: 12,
+        shadowRadius: 5,        
+        elevation: 6,
     }
   });

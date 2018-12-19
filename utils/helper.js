@@ -2,6 +2,7 @@
 import { AsyncStorage } from 'react-native';
 import sortBy from 'sort-by';
 import { Notifications, Permissions } from 'expo'
+import uuid from 'uuid';
 
 const NOTIFICATION_KEY = 'UdaciCards:notifications'
 // import uuidv4 from 'uuid/v4'
@@ -15,8 +16,8 @@ export const parseDecks = (decks) => {
 }
 
 export const createDecks = () => {
-    
-      AsyncStorage.setItem("4545554564-5156456", JSON.stringify({
+      let id = uuid()
+      AsyncStorage.setItem(id, JSON.stringify({
         title: 'React',
         questions: [
           {
@@ -28,12 +29,12 @@ export const createDecks = () => {
             answer: 'The componentDidMount lifecycle event'
           }
         ],
-        id: "4545554564-5156456",
+        id: id,
         tried: "You did not practiced this deck today",
-        key: "4545554564-5156456"
+        key: id
       }));
-
-      AsyncStorage.setItem("2545154554546-568464", JSON.stringify({
+      id = uuid()
+      AsyncStorage.setItem(id, JSON.stringify({
         title: 'JavaScript',
         questions: [
           {
@@ -41,12 +42,12 @@ export const createDecks = () => {
             answer: 'The combination of a function and the lexical environment within which that function was declared.'
           }
         ],
-        id: "2545154554546-568464",
+        id: id,
         tried: "You did not practiced this deck today",
-        key: "2545154554546-568464"
+        key: id
       }));
-
-      AsyncStorage.setItem("54545654654-56556646", JSON.stringify({
+      id = uuid()
+      AsyncStorage.setItem(id, JSON.stringify({
         title: 'Native',
         questions: [
           {
@@ -54,9 +55,9 @@ export const createDecks = () => {
             answer: 'Yes.'
           }
         ],
-        id: "54545654654-56556646",
+        id: id,
         tried: "You did not practiced this deck today",
-        key: "54545654654-56556646"
+        key: id
       }));     
 };
 
