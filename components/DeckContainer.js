@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 10,
         borderRadius: 5,
-        marginBottom: 5,
+        marginBottom: 15,
         backgroundColor: blue,
         shadowColor: "#757575",
         shadowOffset: {

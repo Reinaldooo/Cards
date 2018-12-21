@@ -18,7 +18,7 @@ export default class AddDeck extends React.Component {
           id,
           title: this.state.deckName,
           questions: [],
-          tried: "You did not practiced this deck today",
+          tried: "Not practiced today!",
           key: id
         }
       AsyncStorage.setItem(id, JSON.stringify(newDeck));
@@ -52,12 +52,6 @@ export default class AddDeck extends React.Component {
         <TouchableOpacity 
         style={btnFocus}
         onPress={this.textHandle}
-        >
-            <Text style={{ fontSize: 20, color: '#424242' }}>Add</Text>          
-        </TouchableOpacity>
-        <TouchableOpacity 
-        style={btnFocus}
-        onPress={this.props.screenProps.test}
         >
             <Text style={{ fontSize: 20, color: '#424242' }}>Add</Text>          
         </TouchableOpacity>
