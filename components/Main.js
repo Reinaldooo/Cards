@@ -17,6 +17,12 @@ export default class Main extends React.Component {
     }).catch((e) => console.log(e));
   }
 
+  componentDidUpdate(prevProps) {
+    if(prevProps.screenProps !== this.props.screenProps) {
+      this.setState({ decks: this.props.screenProps.decks })
+    }
+  }
+
   componentDidMount() {
     AsyncStorage.getAllKeys((err, keys) => {
       AsyncStorage.multiGet(keys, (err, decks) => {
@@ -25,22 +31,10 @@ export default class Main extends React.Component {
     }).catch((e) => console.log(e));
   }
 
-  componentDidUpdate(nextProps) {
-    if (nextProps.navigation.state.params) {
-      if (nextProps.navigation.state.params !== this.props.navigation.state.params) {
-        AsyncStorage.getAllKeys((err, keys) => {
-          AsyncStorage.multiGet(keys, (err, decks) => {
-            this.setState({ decks: parseDecks(decks) });
-          });
-        }).catch((e) => console.log(e));
-      }
-    }
-  }
-
   render() {
     return (
       <View style={{ backgroundColor: '#FAFAFA', flex: 1, paddingTop: 20 }}>
-        {this.state.decks[0] ?
+        {(this.state.decks[0] && this.state.decks[0].title) ?
           <FlatList
             data={this.state.decks}
             onRefresh={this.handleRefresh}
@@ -48,7 +42,6 @@ export default class Main extends React.Component {
             renderItem={({ item }) =>
               <DeckContainer
                 navigation={this.props.navigation}
-                key={item.id}
                 deckName={item.title}
                 questions={item.questions.length}
                 deckId={item.id}

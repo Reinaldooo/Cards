@@ -54,7 +54,7 @@ export default class ViewDeck extends React.Component {
             }
             {this.props.navigation.state.params.home &&
             <TouchableOpacity style={btnFocus} onPress={() => 
-                this.props.navigation.navigate('Main')}>
+                this.props.navigation.navigate('Main', { home: true })}>
                 <Text style={{ fontSize: 20, color: '#424242' }}>Home</Text>          
             </TouchableOpacity>
             }

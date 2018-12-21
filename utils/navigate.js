@@ -16,7 +16,7 @@ const Tabs = TabNavigator({
       navigationOptions: {
         tabBarLabel: 'Decks',
         tabBarIcon: ({ tintColor }) => <Ionicons name="md-albums" size={30} color={tintColor} />
-      },
+      }
     },
     Deck: {
       screen: AddDeck,

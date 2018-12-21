@@ -1,7 +1,7 @@
 import React from 'react';
 import { StatusBar, View, Platform, AsyncStorage } from 'react-native';
 import { Constants } from 'expo';
-import { createDecks, parseDecks } from './utils/helper'
+import { parseDecks, createDecks } from './utils/helper'
 import { MainNavigator } from './utils/navigate';
 
 
@@ -15,16 +15,27 @@ function UdaciStatusBar({ backgroundColor, ...props }) {
 
 export default class App extends React.Component {
 
-  componentDidMount() {         
-    AsyncStorage.clear();
-    createDecks();
+  state = {
+    decks: [],
+    test: () => console.log("lol")
   }
-  
+
+  componentDidMount() { 
+    console.log("app mount")       
+    AsyncStorage.clear();
+    createDecks()
+    AsyncStorage.getAllKeys((err, keys) => {
+      AsyncStorage.multiGet(keys, (err, decks) => {
+        this.setState({ decks: parseDecks(decks) });
+      });
+    }).catch((e) => console.log(e));
+  }
+
   render() {    
     return (
       <View style={{ flex: 1 }}>
       <UdaciStatusBar backgroundColor={'#FAFAFA'} barStyle="default" />
-      <MainNavigator/>
+      <MainNavigator screenProps={this.state}/>
       </View>
     );
   }

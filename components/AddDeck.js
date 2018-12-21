@@ -36,9 +36,9 @@ export default class AddDeck extends React.Component {
   render() {
     const { inputStyle, mainContainer, btnFocus } = styles;
 
-    return (
-      
+    return (      
       <View style={[mainContainer]}>
+      {console.log(this.props)}
       <Text style={{ fontSize: 25, marginBottom: 15, color: '#424242' }}>Add your new deck:</Text>
         <TextInput
             value={this.state.deckName}
@@ -52,6 +52,12 @@ export default class AddDeck extends React.Component {
         <TouchableOpacity 
         style={btnFocus}
         onPress={this.textHandle}
+        >
+            <Text style={{ fontSize: 20, color: '#424242' }}>Add</Text>          
+        </TouchableOpacity>
+        <TouchableOpacity 
+        style={btnFocus}
+        onPress={this.props.screenProps.test}
         >
             <Text style={{ fontSize: 20, color: '#424242' }}>Add</Text>          
         </TouchableOpacity>
