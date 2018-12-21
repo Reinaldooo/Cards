@@ -8,7 +8,7 @@ import AddDeck from '../components/AddDeck';
 import AddCard from '../components/AddCard';
 import Quiz from '../components/Quiz';
 import { Platform } from 'react-native';
-import { red, white } from './colorNames';
+import { blue, white } from './colorNames';
 
 const Tabs = TabNavigator({
     Main: {
@@ -31,14 +31,14 @@ const Tabs = TabNavigator({
       header: null
     },
     tabBarOptions: {
-      activeTintColor: '#F4511E',
-      inactiveTintColor: '#FF8A65',
+      activeTintColor: white,
+      inactiveTintColor: 'rgb(70, 195, 249)',
       labelStyle: {
         fontSize: Platform.OS === 'ios' ? 12 : 18,
       },
       style: {
         height: 56,
-        backgroundColor: white,
+        backgroundColor: blue,
         shadowColor: 'rgba(0, 0, 0, 0.5)',
         shadowOffset: {
           width: 0,
@@ -64,7 +64,7 @@ const Tabs = TabNavigator({
         title: `${navigation.state.params.deckName} Deck`,
         headerTintColor: white,
         headerStyle: {
-          backgroundColor: red,
+          backgroundColor: blue,
           marginTop: 0 - Constants.statusBarHeight
         }
       }),
@@ -75,7 +75,7 @@ const Tabs = TabNavigator({
         title: 'Add Card',
         headerTintColor: white,
         headerStyle: {
-          backgroundColor: red,
+          backgroundColor: blue,
           marginTop: 0 - Constants.statusBarHeight
         }
       }),
@@ -86,7 +86,7 @@ const Tabs = TabNavigator({
         title: 'Quiz',
         headerTintColor: white,
         headerStyle: {
-          backgroundColor: red,
+          backgroundColor: blue,
           marginTop: 0 - Constants.statusBarHeight
         }
       }),

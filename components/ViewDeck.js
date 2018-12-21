@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, AsyncStorage, Platform } from 'react-native';
-import { red, white } from '../utils/colorNames';
+import { blue, white } from '../utils/colorNames';
 
 const CardsCount = ({ questions, textStyle }) => {
   if(questions === 0) {
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     paddingVertical: 10, 
     paddingHorizontal: 20, 
-    backgroundColor: red,
+    backgroundColor: blue,
     alignItems: 'center'
   },
   btnDelete: {
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10, 
     paddingHorizontal: 20, 
     borderWidth: 1.5,
-    borderColor: red,    
+    borderColor: blue,    
     alignItems: 'center'
   },
   btnFocus: {
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10, 
     paddingHorizontal: 20, 
     borderWidth: 1.5,
-    borderColor: red,
+    borderColor: blue,
     alignItems: 'center'
   }
 });

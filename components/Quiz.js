@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, AsyncStorage } from 'react-native';
 import { clearLocalNotification, setLocalNotification } from '../utils/helper';
-import { red, white } from '../utils/colorNames';
+import { blue, white } from '../utils/colorNames';
 
 const CardsCount = ({ questions, textStyle }) => {
   if(questions === 1) {
@@ -173,7 +173,7 @@ export default class Quiz extends React.Component {
                 <Text style={{ fontSize: 20, color: '#424242' }}>Correct</Text>          
             </TouchableOpacity>
             <TouchableOpacity
-            style={[btn, { borderColor: red, flex: 1, marginRight: 20, marginLeft: 5 }]}
+            style={[btn, { borderColor: blue, flex: 1, marginRight: 20, marginLeft: 5 }]}
             onPress={this.incorrect}>
                 <Text style={{ fontSize: 20, color: '#424242' }}>Incorrect</Text>          
             </TouchableOpacity>
@@ -216,7 +216,7 @@ Study more and try again!`
           </TouchableOpacity>
 
           <TouchableOpacity 
-            style={[btn, { borderColor: red, marginTop: 8 }]}
+            style={[btn, { borderColor: blue, marginTop: 8 }]}
             onPress={() => this.setState({ 
               currentQuestion: 0,
               lastQuestion: this.state.restartHelper,
@@ -269,7 +269,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10, 
     paddingHorizontal: 20, 
     marginTop: 60,
-    backgroundColor: red,
+    backgroundColor: blue,
     alignItems: 'center'
   },
   btnDelete: {
@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20, 
     marginTop: 60,
     borderWidth: 1.5,
-    borderColor: red,    
+    borderColor: blue,    
     alignItems: 'center'
   },
   btnFocus: {
@@ -287,7 +287,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20, 
     marginTop: 20,    
     borderWidth: 1.5,
-    borderColor: red,
+    borderColor: blue,
     alignItems: 'center'
   },
   container: {

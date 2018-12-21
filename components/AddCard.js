@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, AsyncStorage } from 'react-native';
+import { blue } from '../utils/colorNames'
 
 export default class AddCard extends React.Component {
 
@@ -42,7 +43,7 @@ export default class AddCard extends React.Component {
     const { inputStyle, mainContainer, btnFocus } = styles;
     return (      
       <View style={[mainContainer]}>
-      <Text style={{ fontSize: 30, marginBottom: 15, color: '#F4511E' }}>Add your new card:</Text>
+      <Text style={{ fontSize: 30, marginBottom: 15, color: blue }}>Add your new card:</Text>
         <TextInput
             value={this.state.question}
             style={inputStyle}
@@ -96,7 +97,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10, 
     paddingHorizontal: 20, 
     borderWidth: 1.5,
-    borderColor: '#F4511E',
+    borderColor: blue,
     marginTop: 15
   }
 });

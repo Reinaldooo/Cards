@@ -1,7 +1,8 @@
 import React from 'react';
-import { StatusBar, View, Platform, AsyncStorage } from 'react-native';
+import { StatusBar, View, AsyncStorage, Platform } from 'react-native';
 import { Constants } from 'expo';
 import { parseDecks, createDecks } from './utils/helper'
+import { blue, white } from './utils/colorNames'
 import { MainNavigator } from './utils/navigate';
 
 
@@ -17,7 +18,7 @@ export default class App extends React.Component {
 
   state = {
     decks: [],
-    test: () => console.log("lol")
+    test: () => console.log("Test")
   }
 
   componentDidMount() { 
@@ -26,7 +27,7 @@ export default class App extends React.Component {
     createDecks()
     AsyncStorage.getAllKeys((err, keys) => {
       AsyncStorage.multiGet(keys, (err, decks) => {
-        this.setState({ decks: parseDecks(decks) });
+        this.setState({ decks: parseDecks(decks).filter((d) => d !== null) });
       });
     }).catch((e) => console.log(e));
   }
@@ -34,7 +35,7 @@ export default class App extends React.Component {
   render() {    
     return (
       <View style={{ flex: 1 }}>
-      <UdaciStatusBar backgroundColor={'#FAFAFA'} barStyle="default" />
+      <UdaciStatusBar backgroundColor={Platform.OS === 'ios' ? white : blue} barStyle="default" />
       <MainNavigator screenProps={this.state}/>
       </View>
     );

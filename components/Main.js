@@ -2,6 +2,7 @@ import React from 'react';
 import { View, FlatList, AsyncStorage, TouchableOpacity, Text, StyleSheet, ActivityIndicator } from 'react-native';
 import DeckContainer from './DeckContainer';
 import { parseDecks } from '../utils/helper'
+import { white } from '../utils/colorNames'
 
 export default class Main extends React.Component {
   state = {
@@ -33,12 +34,14 @@ export default class Main extends React.Component {
 
   render() {
     return (
-      <View style={{ backgroundColor: '#FAFAFA', flex: 1, paddingTop: 20 }}>
+      <View style={{ backgroundColor: white, flex: 1, paddingTop: 20 }}>
         {(this.state.decks[0] && this.state.decks[0].title) ?
           <FlatList
             data={this.state.decks}
             onRefresh={this.handleRefresh}
             refreshing={this.state.refreshing}
+            numColumns={2}
+            columnWrapperStyle={{ justifyContent: 'space-between', padding: '5%', paddingBottom: '10%' }}
             renderItem={({ item }) =>
               <DeckContainer
                 navigation={this.props.navigation}

@@ -30,7 +30,7 @@ export const createDecks = () => {
           }
         ],
         id: id,
-        tried: "You did not practiced this deck today",
+        tried: "Not practiced today!",
         key: id
       }));
       id = uuid()
@@ -43,7 +43,7 @@ export const createDecks = () => {
           }
         ],
         id: id,
-        tried: "You did not practiced this deck today",
+        tried: "Not practiced today!",
         key: id
       }));
       id = uuid()
@@ -56,7 +56,23 @@ export const createDecks = () => {
           }
         ],
         id: id,
-        tried: "You did not practiced this deck today",
+        tried: "Not practiced today!",
+        key: id
+      }));
+      id = uuid()     
+      AsyncStorage.setItem(id, JSON.stringify({
+        title: 'TypeScript',
+        questions: [],
+        id: id,
+        tried: "Not practiced today!",
+        key: id
+      }));     
+      id = uuid()     
+      AsyncStorage.setItem(id, JSON.stringify({
+        title: 'GraphQL',
+        questions: [],
+        id: id,
+        tried: "Not practiced today!",
         key: id
       }));     
 };

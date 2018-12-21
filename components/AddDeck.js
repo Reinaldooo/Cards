@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, AsyncStorage } from 'react-native';
 import uuid from 'uuid';
+import { blue } from '../utils/colorNames'
 
 export default class AddDeck extends React.Component {
 
@@ -38,7 +39,6 @@ export default class AddDeck extends React.Component {
 
     return (      
       <View style={[mainContainer]}>
-      {console.log(this.props)}
       <Text style={{ fontSize: 25, marginBottom: 15, color: '#424242' }}>Add your new deck:</Text>
         <TextInput
             value={this.state.deckName}
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10, 
     paddingHorizontal: 20,  
     borderWidth: 1.5,
-    borderColor: 'tomato',
+    borderColor: blue,
     marginTop: 15
   }
 });
