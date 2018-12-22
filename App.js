@@ -17,17 +17,15 @@ function UdaciStatusBar({ backgroundColor, ...props }) {
 export default class App extends React.Component {
 
   state = {
-    decks: [],
-    test: () => console.log("Test")
+    decks: []
   }
 
-  componentDidMount() { 
-    console.log("app mount")       
+  componentDidMount() {     
     AsyncStorage.clear();
     createDecks()
     AsyncStorage.getAllKeys((err, keys) => {
       AsyncStorage.multiGet(keys, (err, decks) => {
-        this.setState({ decks: parseDecks(decks).filter((d) => d !== null) });
+        this.setState({ decks: parseDecks(decks) });
       });
     }).catch((e) => console.log(e));
   }

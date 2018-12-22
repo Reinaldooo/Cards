@@ -10,7 +10,7 @@ const NOTIFICATION_KEY = 'UdaciCards:notifications'
 export const parseDecks = (decks) => {
   return decks
     //remove notifications and reminders
-    .filter((deck) => deck[0] !== "UdaciCards:notifications" && deck[0] !== "reminderSet")
+    .filter((deck) => deck[0] !== "UdaciCards:notifications" && deck[0] !== "reminderSet" && deck !== null)
     .map(deck => JSON.parse(deck[1]))
     .sort(sortBy('title'))
 }

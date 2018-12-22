@@ -25,16 +25,16 @@ export default class ViewDeck extends React.Component {
   }
  
   render() {
-    const { textStyle, mainContainer, btn, btnFocus, btnDanger, btnDelete } = styles;
+    const { textStyle, mainContainer, btn, btnFocus, btnDanger, buttonsWrapper } = styles;
     return (      
       <View style={[mainContainer]}>
         {this.props.navigation.state.params &&
           <View style={{flexBasis: "100%", alignItems: "center", flexDirection: 'column', justifyContent: 'space-around'}}>
-            <View style={{ flex: 1, alignItems: "center" }}>
+            <View style={{ flex: 1.5, alignItems: "center" }}>
             <Text style={[textStyle, { fontSize: 50 }]}>{this.props.navigation.state.params.deckName}</Text>
             <CardsCount questions={this.props.navigation.state.params.questions} textStyle={textStyle}/>
             </View>
-            <View style={{ flex: 1.5, flexDirection: 'column', justifyContent: 'space-around' }}>
+            <View style={ buttonsWrapper }>
             <TouchableOpacity style={btn} onPress={() => 
                 this.props.navigation.navigate('AddCard', {
                   deckName: this.props.navigation.state.params.deckName,
@@ -49,18 +49,18 @@ export default class ViewDeck extends React.Component {
                 this.props.navigation.navigate('Quiz', {
                 deckId: this.props.navigation.state.params.deckId
             })}>
-                <Text style={{ fontSize: 20, color: '#424242' }}>Start Quiz</Text>          
+                <Text style={{ fontSize: 20, color: white }}>Start Quiz</Text>          
             </TouchableOpacity>
             }
             {this.props.navigation.state.params.home &&
-            <TouchableOpacity style={btnFocus} onPress={() => 
+            <TouchableOpacity style={btn} onPress={() => 
                 this.props.navigation.navigate('Main', { home: true })}>
                 <Text style={{ fontSize: 20, color: '#424242' }}>Home</Text>          
             </TouchableOpacity>
             }
 
             {!this.state.deleteDeck ?
-            <TouchableOpacity style={btnDelete} onPress={() => this.setState({ deleteDeck: true })}>
+            <TouchableOpacity style={btn} onPress={() => this.setState({ deleteDeck: true })}>
                 <Text style={{ fontSize: 17, color: '#424242' }}>Delete Deck</Text>          
             </TouchableOpacity>
             :
@@ -104,20 +104,19 @@ const styles = StyleSheet.create({
     backgroundColor: blue,
     alignItems: 'center'
   },
-  btnDelete: {
-    borderRadius: 5,
-    paddingVertical: 10, 
-    paddingHorizontal: 20, 
-    borderWidth: 1.5,
-    borderColor: blue,    
-    alignItems: 'center'
+  buttonsWrapper: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    width: '50%'
   },
   btnFocus: {
     borderRadius: 5,
-    paddingVertical: 10, 
-    paddingHorizontal: 20, 
-    borderWidth: 1.5,
-    borderColor: blue,
-    alignItems: 'center'
+    paddingVertical: 15, 
+    paddingHorizontal: 30,
+    backgroundColor: blue, 
+    alignItems: 'center',
+    color: white
   }
 });
