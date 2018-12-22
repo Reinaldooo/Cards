@@ -4,7 +4,7 @@ IOS Homescreen            |  Android Homescreen
 
 IOS Homescreen            
 :-------------------------:
-![FLIP GIF](/flip/gif)
+![FLIP GIF](/flip.gif)
 
 
 ## React Nanodegree Program
