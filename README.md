@@ -2,6 +2,10 @@ IOS Homescreen            |  Android Homescreen
 :-------------------------:|:-------------------------:
 ![IOS PNG](/IOS.png)  |  ![Android PNG](/Android.png)
 
+IOS Homescreen            
+:-------------------------:
+![FLIP GIF](/flip/gif)
+
 
 ## React Nanodegree Program
 ### UdaciCards Project
