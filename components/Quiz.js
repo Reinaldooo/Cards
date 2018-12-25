@@ -15,7 +15,6 @@ const CardsCount = ({ questions, textStyle }) => {
     );
   };
 };
-
 export default class Quiz extends React.Component {
   state = {
     deck: {},

@@ -20,7 +20,6 @@ const CardsCount = ({ questions, textStyle }) => {
 };
 
 export default class DeckContainer extends Component {
-
     render() {
         const { textStyle, viewStyle, tried } = styles;
         return (

@@ -20,7 +20,7 @@
     "ios": {
       "supportsTablet": true
     },
-    "description": "",
+    "description": "Cross platform card flip memory app built on React Native.",
     "githubUrl": "https://github.com/Reinaldooo/UdaciCards"
   }
 }
