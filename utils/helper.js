@@ -2,10 +2,8 @@
 import { AsyncStorage } from 'react-native';
 import sortBy from 'sort-by';
 import { Notifications, Permissions } from 'expo'
-import uuid from 'uuid';
 
 const NOTIFICATION_KEY = 'UdaciCards:notifications'
-// import uuidv4 from 'uuid/v4'
 
 export const parseDecks = (decks) => {
   return decks

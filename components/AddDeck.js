@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, AsyncStorage } from 'react-native';
 import uuid from 'uuid';
-import { blue } from '../utils/colorNames'
+import { blue } from '@utils/colorNames'
 
 export default class AddDeck extends React.Component {
 

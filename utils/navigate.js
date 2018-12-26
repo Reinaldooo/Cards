@@ -2,11 +2,11 @@ import React from 'react';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { Constants } from 'expo';
-import Main from '../components/Main';
-import ViewDeck from '../components/ViewDeck';
-import AddDeck from '../components/AddDeck';
-import AddCard from '../components/AddCard';
-import Quiz from '../components/Quiz';
+import Main from '@components/Main';
+import ViewDeck from '@components/ViewDeck';
+import AddDeck from '@components/AddDeck';
+import AddCard from '@components/AddCard';
+import Quiz from '@components/Quiz';
 import { Platform } from 'react-native';
 import { blue, white } from './colorNames';
 

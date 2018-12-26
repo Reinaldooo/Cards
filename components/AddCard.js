@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, AsyncStorage } from 'react-native';
-import { blue } from '../utils/colorNames'
+import { blue } from '@utils/colorNames'
 
 export default class AddCard extends React.Component {
 

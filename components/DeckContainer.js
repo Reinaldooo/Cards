@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { white, blue } from '../utils/colorNames'
+import { white, blue } from '@utils/colorNames'
 
 const CardsCount = ({ questions, textStyle }) => {
     if(questions === 0) {

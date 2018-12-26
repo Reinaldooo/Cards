@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, FlatList, AsyncStorage, TouchableOpacity, Text, StyleSheet, ActivityIndicator } from 'react-native';
 import DeckContainer from './DeckContainer';
-import { parseDecks } from '../utils/helper'
-import { white, blue } from '../utils/colorNames'
+import { parseDecks } from '@utils/helper'
+import { white, blue } from '@utils/colorNames'
 
 export default class Main extends React.Component {
   state = {

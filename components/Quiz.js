@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, AsyncStorage, Platform } from 'react-native';
 import CardFlip from 'react-native-card-flip';
 import { Ionicons } from '@expo/vector-icons';
-import { clearLocalNotification, setLocalNotification } from '../utils/helper';
-import { blue, white } from '../utils/colorNames';
+import { clearLocalNotification, setLocalNotification } from '@utils/helper';
+import { blue, white } from '@utils/colorNames';
 
 const CardsCount = ({ questions, textStyle }) => {
   if (questions === 1) {
