@@ -30,7 +30,7 @@ export const createDecks = async () => {
           },
           {
             question: 'Where do you make Ajax requests in React?',
-            answer: 'The componentD1Mount lifecycle event'
+            answer: 'The componentDidMount lifecycle event'
           }
         ],
         id: id1,

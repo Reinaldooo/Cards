@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, AsyncStorage } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, AsyncStorage, Platform } from 'react-native';
 import CardFlip from 'react-native-card-flip';
+import { Ionicons } from '@expo/vector-icons';
 import { clearLocalNotification, setLocalNotification } from '../utils/helper';
 import { blue, white } from '../utils/colorNames';
 
@@ -162,8 +163,8 @@ export default class Quiz extends React.Component {
           this.state.deck.title && this.state.quizEnded === false ?
             <CardFlip style={questionCard} ref={(card) => this.card = card} >              
               <View style={ question }>
-                <Text style={[textStyle, { marginTop: 20 }]}>{`Question ${this.state.currentQuestion + 1} of ${this.state.lastQuestion + 1}`}</Text>
-                <Text style={[textStyle, { fontSize: 30, marginTop: 50, textAlign: 'center' }]}>{this.state.deck.questions[this.state.currentQuestion].question}</Text>
+                <Text style={[textStyle, { marginTop: 20, color: blue }]}>{`Question ${this.state.currentQuestion + 1} of ${this.state.lastQuestion + 1}`}</Text>
+                <Text style={[textStyle, { fontSize: 30, marginTop: 50, textAlign: 'center', color: blue }]}>{this.state.deck.questions[this.state.currentQuestion].question}</Text>
                 <TouchableOpacity
                   style={[btn, { marginTop: 60 }]}
                   onPress={() => {
@@ -171,24 +172,24 @@ export default class Quiz extends React.Component {
                     this.setState({ question: false })
                     }
                   }>
-                  <Text style={{ fontSize: 20, color: '#424242' }}>Flip</Text>
+                  <Text style={{ fontSize: 20, color: blue }}>Flip</Text>
                 </TouchableOpacity>
               </View>
               <View style={ answer }> 
                 <Text style={[textStyle, { fontSize: 30 }]}>{this.state.deck.title}</Text>
                 <Text style={textStyle}>{`Question ${this.state.currentQuestion + 1} of ${this.state.lastQuestion + 1}`}</Text>
                 <View style={{ alignItems: 'center' }}>
-                  <Text style={[textStyle, { fontSize: 20, marginTop: 50, padding: 15, textAlign: 'center', color: 'gray' }]}>{this.state.deck.questions[this.state.currentQuestion].answer}</Text>
+                  <Text style={[textStyle, { fontSize: 20, marginTop: 50, padding: 15, textAlign: 'center', color: white }]}>{this.state.deck.questions[this.state.currentQuestion].answer}</Text>
                   <View style={{ alignItems: 'center', marginTop: 60, flexDirection: 'row' }}>
                     <TouchableOpacity
-                      style={[btn, { borderColor: '#424242', flex: 1, marginLeft: 20, marginRight: 5 }]}
+                      style={[btn, { borderColor: white, flex: 1, marginLeft: 20, marginRight: 5 }]}
                       onPress={() => this.correct(this.card)}>
-                      <Text style={{ fontSize: 20, color: '#424242' }}>Correct</Text>
+                      <Text style={{ fontSize: 20, color: white }}><Ionicons name={Platform.OS === 'ios' ? "ios-thumbs-up" : "md-thumbs-up"} size={30} color={white} /></Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                      style={[btn, { borderColor: blue, flex: 1, marginRight: 20, marginLeft: 5 }]}
+                      style={[btn, { borderColor: white, flex: 1, marginRight: 20, marginLeft: 5 }]}
                       onPress={() => this.incorrect(this.card) }>
-                      <Text style={{ fontSize: 20, color: '#424242' }}>Incorrect</Text>
+                      <Text style={{ fontSize: 20, color: white }}><Ionicons name={Platform.OS === 'ios' ? "ios-thumbs-down" : "md-thumbs-down"} size={30} color={white} /></Text>
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -196,7 +197,7 @@ export default class Quiz extends React.Component {
           </CardFlip>
           :
             <View style={{ alignItems: 'center' }}>
-              <Text style={[textStyle, { fontSize: 25, marginTop: 30, padding: 15, textAlign: 'center' }]}>
+              <Text style={[textStyle, { fontSize: 25, marginTop: 30, padding: 15, textAlign: 'center', color: blue }]}>
                 {percentage > 0.74 ?
                   `You got a score of ${Math.floor(percentage * 100)}%! Congratulations!`
                   :
@@ -263,7 +264,7 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     fontSize: 20,
-    color: '#424242',
+    color: white,
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -272,7 +273,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderWidth: 1.5,
-    borderColor: '#424242',
+    borderColor: blue,
     alignItems: 'center'
   },
   btnDanger: {
@@ -319,16 +320,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 30,
     paddingHorizontal: 10,
-    backgroundColor: '#E0E0E0',
     borderRadius: 5,
-    color: white
+    borderColor: '#E3F2FD',
+    borderWidth: 2,
+    backgroundColor: white,
   },
   answer: {
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 30,
     paddingHorizontal: 10,
-    backgroundColor: '#B3E5FC',
+    backgroundColor: blue,
     borderRadius: 5,
   },
 });

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { white, blue } from '../utils/colorNames'
 
@@ -44,23 +44,24 @@ export default class DeckContainer extends Component {
 const styles = StyleSheet.create({
     textStyle: {
         fontSize: 15,
-        color: white
+        color: blue
     },
     viewStyle: {
         justifyContent: 'center',
         alignItems: 'center',
         padding: 10,
         borderRadius: 5,
+        borderColor: '#E3F2FD',
+        borderWidth: 2,
         marginBottom: 15,
-        backgroundColor: blue,
+        backgroundColor: white,
         shadowColor: "#757575",
         shadowOffset: {
             width: 3,
             height: 3,
         },
-        shadowOpacity: .2,
-        shadowRadius: 5,        
-        elevation: 6,
+        shadowOpacity: .15,
+        shadowRadius: 5, 
         width: '47%'
     },
     tried: {
