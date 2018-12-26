@@ -1,6 +1,6 @@
 IOS Homescreen            |  Android Homescreen       | Cards
 :-------------------------:|:-------------------------:|:-------------------------:
-![IOS PNG](/IOS.png)  |  ![Android PNG](/Android.png) | ![FLIP GIF](/flip.gif)
+![IOS PNG](/IOSI.png)  |  ![Android PNG](/AndroidI.png) | ![FLIP GIF](/flipI.gif)
 
 ## React Nanodegree Program
 ### UdaciCards Project
