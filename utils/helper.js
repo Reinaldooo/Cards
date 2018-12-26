@@ -15,9 +15,13 @@ export const parseDecks = (decks) => {
     .sort(sortBy('title'))
 }
 
-export const createDecks = () => {
-      let id = uuid()
-      AsyncStorage.setItem(id, JSON.stringify({
+export const createDecks = async () => {
+      let id1 = String(Date.now() + 50)
+      let id2 = String(Date.now() + 150)
+      let id3 = String(Date.now() + 250)
+      let id4 = String(Date.now() + 350)
+      let id5 = String(Date.now() + 450) 
+      await AsyncStorage.setItem(id1, JSON.stringify({
         title: 'React',
         questions: [
           {
@@ -26,15 +30,14 @@ export const createDecks = () => {
           },
           {
             question: 'Where do you make Ajax requests in React?',
-            answer: 'The componentDidMount lifecycle event'
+            answer: 'The componentD1Mount lifecycle event'
           }
         ],
-        id: id,
+        id: id1,
         tried: "Not practiced today!",
-        key: id
-      }));
-      id = uuid()
-      AsyncStorage.setItem(id, JSON.stringify({
+        key: id1
+      }));      
+      await AsyncStorage.setItem(id2, JSON.stringify({
         title: 'JavaScript',
         questions: [
           {
@@ -42,12 +45,11 @@ export const createDecks = () => {
             answer: 'The combination of a function and the lexical environment within which that function was declared.'
           }
         ],
-        id: id,
+        id: id2,
         tried: "Not practiced today!",
-        key: id
-      }));
-      id = uuid()
-      AsyncStorage.setItem(id, JSON.stringify({
+        key: id2
+      }));      
+      await AsyncStorage.setItem(id3, JSON.stringify({
         title: 'Native',
         questions: [
           {
@@ -55,26 +57,24 @@ export const createDecks = () => {
             answer: 'Yes.'
           }
         ],
-        id: id,
+        id: id3,
         tried: "Not practiced today!",
-        key: id
-      }));
-      id = uuid()     
-      AsyncStorage.setItem(id, JSON.stringify({
+        key: id3
+      }));     
+      await AsyncStorage.setItem(id4, JSON.stringify({
         title: 'TypeScript',
         questions: [],
-        id: id,
+        id: id4,
         tried: "Not practiced today!",
-        key: id
-      }));     
-      id = uuid()     
-      AsyncStorage.setItem(id, JSON.stringify({
+        key: id4
+      }));       
+      await AsyncStorage.setItem(id5, JSON.stringify({
         title: 'GraphQL',
         questions: [],
-        id: id,
+        id: id5,
         tried: "Not practiced today!",
-        key: id
-      }));     
+        key: id5
+      }));    
 };
 
 

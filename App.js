@@ -21,13 +21,15 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {     
-    AsyncStorage.clear();
-    createDecks()
-    AsyncStorage.getAllKeys((err, keys) => {
-      AsyncStorage.multiGet(keys, (err, decks) => {
-        this.setState({ decks: parseDecks(decks) });
-      });
-    }).catch((e) => console.log(e));
+    AsyncStorage.clear().then(() => {
+      createDecks().then(() => {
+        AsyncStorage.getAllKeys((err, keys) => {
+          AsyncStorage.multiGet(keys, (err, decks) => {
+            this.setState({ decks: parseDecks(decks) });
+          });
+        }).catch((e) => console.log(e));
+      })
+    });
   }
 
   render() {    
