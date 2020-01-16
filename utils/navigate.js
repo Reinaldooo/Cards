@@ -1,7 +1,7 @@
 import React from 'react';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
-import { Constants } from 'expo';
+import Constants from 'expo-constants'
 import Main from '@components/Main';
 import ViewDeck from '@components/ViewDeck';
 import AddDeck from '@components/AddDeck';
