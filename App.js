@@ -2,14 +2,14 @@ import React from 'react';
 import { StatusBar, View, AsyncStorage, Platform } from 'react-native';
 import Constants from 'expo-constants'
 import { parseDecks, createDecks } from '@utils/helper'
-import { blue, white } from '@utils/colorNames'
+import { blue } from '@utils/colorNames'
 import { MainNavigator } from '@utils/navigate';
 
 
 function UdaciStatusBar({ backgroundColor, ...props }) {
   return (
     <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
-      <StatusBar translucent backgroundColor={backgroundColor} {...props} />
+      <StatusBar backgroundColor={backgroundColor} {...props} />
     </View>
   );
 }
@@ -35,7 +35,7 @@ export default class App extends React.Component {
   render() {    
     return (
       <View style={{ flex: 1 }}>
-      <UdaciStatusBar backgroundColor={Platform.OS === 'ios' ? white : blue} barStyle="default" />
+      <UdaciStatusBar backgroundColor={blue} barStyle="light-content" />
       <MainNavigator screenProps={this.state}/>
       </View>
     );
