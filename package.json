@@ -7,17 +7,17 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "react-native-card-flip": "^1.0.4",
-    "react-navigation": "^1.0.0-beta.21",
-    "sort-by": "^1.2.0",
-    "uuid": "^3.1.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
-    "expo": "^33.0.0",
+    "expo": "^34.0.0",
+    "expo-constants": "~6.0.0",
     "react": "16.8.3",
-    "expo-constants": "~5.0.1"
+    "react-native": "https://github.com/expo/react-native/archive/sdk-34.0.2.tar.gz",
+    "react-native-card-flip": "^1.0.4",
+    "react-navigation": "^1.6.1",
+    "sort-by": "^1.2.0",
+    "uuid": "^3.1.0"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.0.0"
+    "babel-preset-expo": "^6.0.0"
   },
   "private": true
 }
